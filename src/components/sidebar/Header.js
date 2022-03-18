@@ -1,7 +1,5 @@
-//import useState hook to create menu collapse state
-import React, { useState } from "react";
 
-//import react pro sidebar components
+import React, { useState } from "react";
 import {
     ProSidebar,
     Menu,
@@ -11,11 +9,10 @@ import {
     SidebarContent,
 } from "react-pro-sidebar";
 
-//import icons from react icons
-import { FaList, FaRegHeart } from "react-icons/fa";
-import { FiHome, FiLogOut, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
-import { RiPencilLine } from "react-icons/ri";
+import { FaRegHeart, FaTasks } from "react-icons/fa";
+import { FiHome, FiLogOut, FiArrowLeftCircle, FiArrowRightCircle,FiMessageSquare } from "react-icons/fi";
 import { BiCog } from "react-icons/bi";
+import {BsPeople}from "react-icons/bs"
 
 
 //import sidebar css from react-pro-sidebar module and our custom css 
@@ -40,25 +37,19 @@ const Header = () => {
                     <SidebarHeader>
                         <div className="logotext">
                             {/* small and big change using menucollapse state */}
-                            <p>{menuCollapse ? "Aspire" : "Aspire"}</p>
+                            {menuCollapse ? <h2>Aspire</h2> : <h1>Aspire</h1>}
                         </div>
                         <div className="closemenu" onClick={menuIconClick}>
                             {/* changing menu collapse icon on click */}
-                            {menuCollapse ? (
-                                <FiArrowRightCircle />
-                            ) : (
-                                <FiArrowLeftCircle />
-                            )}
+                            {menuCollapse ? (<FiArrowRightCircle />) : (<FiArrowLeftCircle />)}
                         </div>
                     </SidebarHeader>
                     <SidebarContent>
                         <Menu iconShape="square">
-                            <MenuItem active={true} icon={<FiHome />}>
-                                Home
-                            </MenuItem>
-                            <MenuItem icon={<FaRegHeart />}>Messages</MenuItem>
-                            <MenuItem icon={<FaList />}>My Tasks</MenuItem>
-                            <MenuItem icon={<RiPencilLine />}>Students</MenuItem>
+                            <MenuItem active={true} icon={<FiHome />}>Home</MenuItem>
+                            <MenuItem icon={<FiMessageSquare />}>Messages</MenuItem>
+                            <MenuItem icon={<FaTasks />}>My Tasks</MenuItem>
+                            <MenuItem icon={<BsPeople />}>Students</MenuItem>
                             <MenuItem icon={<BiCog />}>Settings</MenuItem>
                         </Menu>
                     </SidebarContent>
