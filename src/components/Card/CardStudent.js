@@ -164,7 +164,7 @@ export default function CardStudent() {
           <Card sx={{ maxWidth: 345, maxHeight: 200 }}>
             <CardContent sx={{ maxHeight: 100 }}>
               <Typography gutterBottom variant="h5" component="div">
-                David P Joseph
+                 Christo Shaji 
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 <h3>

@@ -1,0 +1,32 @@
+
+
+  .Attendence {
+	font-family: arial, sans-serif;
+  
+  width: 30cm;
+  border: 1px solid black;
+  text-align: center;
+  padding: 14px 28px;
+  left: 10cm;
+  position: relative;
+}
+
+tr:nth-child(even) {
+  background-color: lightcyan;
+}
+	
+.internal {
+	font-family: arial, sans-serif;
+	width: 30cm;
+	border: 1.5px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	padding: 14px 28px;
+	left: 10cm;
+ 	position: relative;
+  }
+  th, td {
+	padding: 5px;
+	text-align: center;    
+  }
+	
