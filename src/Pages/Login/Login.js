@@ -9,6 +9,9 @@ function Login() {
             <input type="text" placeholder="Username" />
             <input type="password" placeholder="Password" />
             <button>login</button>
+            <p class="message">
+              Not registered? <a >Create an account</a>
+            </p>
           </form>
         </div>
       </div>

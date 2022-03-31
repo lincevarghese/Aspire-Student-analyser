@@ -1,42 +1,27 @@
 import React from 'react'
 import "./Courses.css"
+
 function Courses() {
   return (
-    <div >
-          <div className="card card-1">
-              <h5>CS 400</h5>
-              <h2 className="card__title">Principle of Information Security</h2>
-              <p className="card__apply">
-                <br></br>
-                <button className="button-36" type="button" onclick="default.asp">A</button>
-                <button className="button-36" type="button" onclick="default.asp" style={{marginLeft:'1cm'}}>B</button>
-              </p>
-            </div>
-
-            <div className="card card-2">
-              <h5>MP 400</h5>
-              <h2 className="card__title">Product Development and Design</h2>
-              <p className="card__apply">
-                <br></br>
-                <button className="button-36" type="button" onclick="default.asp">A</button>
-                <button className="button-36" type="button" onclick="default.asp" style={{marginLeft:'1cm'}}>B</button>
-              </p>
-            </div>
-            
-
-            <div className="card card-3">
-              <h5>CS 405</h5>
-              <h2 className="card__title">Computer System Architecture</h2>
-              <p className="card__apply">
-                <br></br>
-                <button className="button-36" type="button" onclick="default.asp">A</button>
-                <button className="button-36" type="button" onclick="default.asp" style={{marginLeft:'1cm'}}>B</button>
-                </p>
-            </div>
-          
+   <div className="main-container">
+      
+      <div className="cardcourse card-1">
+        <h4 className="cardcourse_title">CS 400</h4>
+        <h2 className="cardcourse__title">Principle of Information Security</h2>
       </div>
+
+      <div className="cardcourse card-2">
+        <h4 className="cardcourse_title">CS 306</h4>
+        <h2 className="cardcourse__title">Software Engineering Project Management</h2>
+      </div>
+
+      <div className="cardcourse card-3">
+        <h4 className="cardcourse_title">CS 405</h4>
+        <h2 className="cardcourse__title">Computer System Architecture</h2>
+      </div>
+       </div> 
     
-  )
+  );
 }
 
 export default Courses

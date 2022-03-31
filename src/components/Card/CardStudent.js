@@ -9,8 +9,8 @@ import "./Card.css"
 export default function CardStudent() {
   return (
     <>
-      <div className="cards">
-        <div className="card1">
+      <div className="counsellor_cards">
+        <div className="counsellor_card1">
           <Card sx={{ maxWidth: 345, maxHeight: 200 }}>
             <CardContent sx={{ maxHeight: 100 }}>
               <Typography gutterBottom variant="h5" component="div">
@@ -31,7 +31,7 @@ export default function CardStudent() {
             </CardActions>
           </Card>
         </div>
-        <div className="card2">
+        <div className="counsellor_card2">
           <Card sx={{ maxWidth: 345, maxHeight: 200 }}>
             <CardContent sx={{ maxHeight: 100 }}>
               <Typography gutterBottom variant="h5" component="div">
@@ -52,7 +52,7 @@ export default function CardStudent() {
             </CardActions>
           </Card>
         </div>
-        <div className="card3">
+        <div className="counsellor_card3">
           <Card sx={{ maxWidth: 345, maxHeight: 200 }}>
             <CardContent sx={{ maxHeight: 100 }}>
               <Typography gutterBottom variant="h5" component="div">
@@ -63,7 +63,6 @@ export default function CardStudent() {
                   SJC18CS071
                   <br />
                   S7 CSE A <br />
-                  
                 </h3>
               </Typography>
             </CardContent>
@@ -73,7 +72,7 @@ export default function CardStudent() {
             </CardActions>
           </Card>
         </div>
-        <div className="card4">
+        <div className="counsellor_card4">
           <Card sx={{ maxWidth: 345, maxHeight: 200 }}>
             <CardContent sx={{ maxHeight: 100 }}>
               <Typography gutterBottom variant="h5" component="div">
@@ -96,8 +95,8 @@ export default function CardStudent() {
         </div>
       </div>
 
-      <div className="cards2">
-        <div className="card5">
+      <div className="counsellor_cards2">
+        <div className="counsellor_card5">
           <Card sx={{ maxWidth: 345, maxHeight: 200 }}>
             <CardContent sx={{ maxHeight: 100 }}>
               <Typography gutterBottom variant="h5" component="div">
@@ -118,7 +117,7 @@ export default function CardStudent() {
             </CardActions>
           </Card>
         </div>
-        <div className="card6">
+        <div className="counsellor_card6">
           <Card sx={{ maxWidth: 345, maxHeight: 200 }}>
             <CardContent sx={{ maxHeight: 100 }}>
               <Typography gutterBottom variant="h5" component="div">
@@ -139,7 +138,7 @@ export default function CardStudent() {
             </CardActions>
           </Card>
         </div>
-        <div className="card7">
+        <div className="counsellor_card7">
           <Card sx={{ maxWidth: 345, maxHeight: 200 }}>
             <CardContent sx={{ maxHeight: 100 }}>
               <Typography gutterBottom variant="h5" component="div">
@@ -160,7 +159,7 @@ export default function CardStudent() {
             </CardActions>
           </Card>
         </div>
-        <div className="card8">
+        <div className="counsellor_card8">
           <Card sx={{ maxWidth: 345, maxHeight: 200 }}>
             <CardContent sx={{ maxHeight: 100 }}>
               <Typography gutterBottom variant="h5" component="div">

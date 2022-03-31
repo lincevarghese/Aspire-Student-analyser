@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../../Pages/Counsellor/Counavbar/Navbar'
+import Navbar from './Navbar'
 import Topbar from '../../components/Topbar/Topbar'
 import CardStudent from '../../components/Card/CardStudent';
 

@@ -1,46 +1,16 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-.main-container {
-  padding: 30px;
-}
-
-/* HEADING */
-
-.heading {
-  text-align: center;
-}
-
-.heading__title {
-  font-weight: 600;
-}
-
-.heading__credits {
-  margin: 10px 0px;
-  color: #888888;
-  font-size: 25px;
-  transition: all 0.5s;
-}
-
-.heading__link {
-  text-decoration: none;
-}
-
-.heading__credits .heading__link {
-  color: inherit;
-}
-
 /* CARDS */
 
 .cards {
+  position: absolute;
+  width: 800px;
+  height: 400px;
+  top: -40px;
+  left: 450px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -50,7 +20,7 @@ body {
   margin: 20px;
   padding: 20px;
   width: 350px;
-  min-height: 30px;
+  height: 100px;
   display: grid;
   grid-template-rows: 5px 30px 1fr 50px;
   border-radius: 10px;
@@ -89,7 +59,7 @@ body {
 }
 
 .card__apply {
-  grid-row: 4/5;
+  grid-row: 2/5;
   align-self: center;
 }
 
@@ -105,6 +75,10 @@ body {
 .card-3 {
   background: radial-gradient(white, rgb(255, 254, 254));
 }
+.card-4 {
+  background: radial-gradient(white, rgb(255, 254, 254));
+}
+
 /* RESPONSIVE */
 @media (max-width: 1600px) {
   .cards {
@@ -113,6 +87,7 @@ body {
   }
 }
 .wrapper{
+    
     display:grid;
     grid-template-columns: 400px 400px;
 }
@@ -122,4 +97,7 @@ body {
 }
 .button:hover{
     background-color: turquoise;
+}
+.button_s{
+  display: inline-block;
 }

@@ -7,31 +7,34 @@
   
   .main-container {
       top: 50px;
+      left: 300px;
       
   }
   
   /* CARDS */
   
-   .card {
+   .cardcourse {
     position: relative;
-    top: 240px;
-    left: 350px;
-    padding: 20px;
-    width: 600px;
+    top: -650px;
+    left: 500px;
+    width: 500px;
+    height: 100px;
+    margin-bottom: 25px;
     min-height: 30px;
     display: grid;
-    grid-template-rows: 5px 30px 1fr 50px;
+    grid-template-columns: 500px;
+    
     border-radius: 10px;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
     transition: all 0.2s;
   }
   
-  .card:hover {
+  .cardcourse:hover {
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
     transform: scale(1.01);
   }
   
-   .card__link::after {
+   .cardcourse__link::after {
     position: absolute;
     top: 25px;
     left: 0;
@@ -41,39 +44,44 @@
     background-color: rgba(77, 4, 245, 0.6);
     transition: all 0.5s;
   }
-  
-  .card__link:hover::after {
+ 
+  .cardcourse__link:hover::after {
     width: 100%;
   }
-  .card__title {
+  .cardcourse__title {
     font-weight: 400;
     color: black;
+    margin-left: 10px;
+  }
+  .cardcourse_title{
+    margin-top: 20px;
+    margin-left: 10px;
   }
   
-  .card__apply {
+  .cardcourse__apply {
     grid-row: 4/5;
     align-self: center;
   }
   
   /* CARD BACKGROUNDS */
-  .card-1 {
-    margin-bottom: 10px;
+  .cardcourse-1 {
+    margin-bottom: 20px;
     background: radial-gradient(white, rgb(255, 254, 254));
   }
   
-  .card-2 {
+  .cardcourse-2 {
       
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     background: radial-gradient(white, rgb(255, 254, 254));
   }
   
-  .card-3 {
-      margin-bottom: 10px;
+  .cardcourse-3 {
+      margin-bottom: 20px;
     background: radial-gradient(white, rgb(255, 254, 254));
   }
   /* RESPONSIVE */
   @media (max-width: 1600px) {
-    .cards {
+    .cardscourse {
       justify-content: center;
     }
   }
@@ -86,7 +94,7 @@
   }
   .wrapper{
     display:grid;
-    grid-template-columns: 200px;
+    grid-template-columns: 500px;
 }
 
 /* CSS */

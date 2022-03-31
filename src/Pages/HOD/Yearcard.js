@@ -6,8 +6,8 @@ import "./Yearcard.css"
 
 function Yearcard() {
   return (
-    <div className="yearcard">
-      <Box
+    <div className="yearcard_main">
+      <Box 
         sx={{
           display: "flex",
           "& > :not(style)": {
@@ -17,14 +17,14 @@ function Yearcard() {
           },
         }}
       >
-        <Paper className="card" variant="outlined">
+        <Paper className="yearcard" variant="outlined">
           <div>
             <h2>First Year</h2>
-            <button class="button" type="button" onclick="default.asp">
+            <button className="yearbutton" type="button" onclick="default.asp">
               A
             </button>
             <button
-              class="button"
+              className="yearbutton"
               type="button"
               onclick="default.asp"
               style={{ marginLeft: "1cm" }}
@@ -33,14 +33,14 @@ function Yearcard() {
             </button>
           </div>
         </Paper>
-        <Paper className="card" variant="outlined">
+        <Paper className="yearcard" variant="outlined">
           <div>
             <h2>Second Year</h2>
-            <button class="button" type="button" onclick="default.asp">
+            <button class="yearbutton" type="button" onclick="default.asp">
               A
             </button>
             <button
-              class="button"
+              className="yearbutton"
               type="button"
               onclick="default.asp"
               style={{ marginLeft: "1cm" }}
@@ -49,14 +49,14 @@ function Yearcard() {
             </button>
           </div>
         </Paper>
-        <Paper className="card" variant="outlined">
+        <Paper className="yearcard" variant="outlined">
           <div>
             <h2>Third Year</h2>
-            <button class="button" type="button" onclick="default.asp">
+            <button className="yearbutton" type="button" onclick="default.asp">
               A
             </button>
             <button
-              class="button"
+              className="yearbutton"
               type="button"
               onclick="default.asp"
               style={{ marginLeft: "1cm" }}
@@ -65,14 +65,14 @@ function Yearcard() {
             </button>
           </div>
         </Paper>
-        <Paper className="card" variant="outlined">
+        <Paper className="yearcard" variant="outlined">
           <div>
             <h2>Fourth Year</h2>
-            <button class="button" type="button" onclick="default.asp">
+            <button className="year_button" type="button" onclick="default.asp">
               A
             </button>
             <button
-              class="button"
+              className="yearbutton"
               type="button"
               onclick="default.asp"
               style={{ marginLeft: "1cm" }}
