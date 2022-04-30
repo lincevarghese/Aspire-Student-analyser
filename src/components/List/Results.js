@@ -3,7 +3,7 @@ import "./Form.css"
 function Results() {
 return (
   <div>
-    <table className="Attendence">
+    <table className="attendance">
       <tr>
         <th>Sl.No</th>
         <th>Name of the Students</th>

@@ -1,22 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins',sans-serif;
-}
-body{
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
+
 .container{
   max-width: 700px;
   width: 100%;
   background-color: #fff;
   padding: 25px 30px;
+  top:35px;
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
@@ -93,7 +82,7 @@ form .input-box span.details{
  #dot-2:checked ~ .category label .two,
  #dot-4:checked ~ .category label .four,
  #dot-3:checked ~ .category label .three{
-   background: rgb(83,157,206);
+   background: rgb(53, 126, 190);
    border-color: #d9d9d9;
  }
  form input[type="radio"]{
@@ -101,7 +90,7 @@ form .input-box span.details{
  }
  form .button{
    height: 45px;
-   margin: 35px 0
+   margin: 25px 0
  }
  form .button input{
    height: 100%;
@@ -116,9 +105,9 @@ form .input-box span.details{
    transition: all 0.3s ease;
    background: #539dce;;
  }
- form .button input:hover{
-  /*transform: scale(0.99); */
-  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+ form .button input:focus{
+  
+  background: #53c6ce;
   }
  @media(max-width: 584px){
  .container{
@@ -143,4 +132,10 @@ form .user-details .input-box{
   .container .content .category{
     flex-direction: column;
   }
+}
+
+
+.message-log{
+
+  text-align: center;
 }

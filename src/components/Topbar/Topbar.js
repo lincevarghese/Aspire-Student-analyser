@@ -6,9 +6,19 @@ import TopBarTitle from "@duik/top-bar-title";
 
 
 import "@duik/it/dist/styles.css";
+import { useUserAuth } from '../../Context/userAuthContext';
 <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:300,400,500&display=swap" rel="stylesheet"></link>
 
 function Topbar() {
+  const{user,logOut} = useUserAuth();
+  const handleLogOut=async()=>{
+    try{
+      await logOut();
+    }catch(error){
+      console.log(error.message);
+    }
+  };
+  
   return (
     <div>
       <TopBar>
@@ -18,7 +28,7 @@ function Topbar() {
           </TopBarTitle>
         </TopBarSection>
         <TopBarSection>
-          <Button primary>Logout</Button>
+          <Button primary onClick={handleLogOut}>Logout</Button>
         </TopBarSection>
       </TopBar>
     </div>

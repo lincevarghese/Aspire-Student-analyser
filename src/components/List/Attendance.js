@@ -4,7 +4,7 @@ function Attendance() {
 return (
 	<div>
 		
-		<table className="Attendence">
+		<table className="attendance">
 		<tr>
 		<th>Sl.No</th>
 		<th>Admission <br></br>No.</th>

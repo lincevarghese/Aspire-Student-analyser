@@ -28,6 +28,10 @@ import Attendance from './components/List/Attendance';
 import Dashboard from "./Pages/Student/Dashboard";
 import Timetable from './Pages/Teacher/Timetable';
 import Analysis from './Pages/Teacher/Courses/Analysis/Analysis';
+import Studsignup from './Pages/Login/Studsignup';
+import Teachsignup from './Pages/Login/Teachsignup';
+import Hodsignup from './Pages/Login/Hodsignup';
+import Counsignup from './Pages/Login/Counsignup';
 
 
 
@@ -41,7 +45,12 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="login" element={<Signup />} />
+          <Route path="signup" element={<Signup />} />
+          <Route path="studentsignup" element={<Studsignup />} />
+          <Route path="teachersignup" element={<Teachsignup/>}/>
+          <Route path="hodsignup" element={<Hodsignup />} />
+          <Route path="counsellorsignup" element={<Counsignup />} />
+
           <Route path="student" element={<Student />}>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="attendance" element={<Attendmain />} />
@@ -49,7 +58,7 @@ function App() {
             <Route path="timetable" element={<Timetable />} />
           </Route>
           <Route path="teacher" element={<Teacher />}>
-            <Route path="course" element={<Analysis/>} />
+            <Route path="course" element={<Analysis />} />
             <Route path="uploads" element={<Input />} />
             <Route path="class" element={<Studentlist />} />
             <Route path="timetable" element={<Timetable />} />

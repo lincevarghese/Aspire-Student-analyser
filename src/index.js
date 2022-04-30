@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import {UserAuthContextProvider} from './Context/userAuthContext'
+import {app} from './Firebase/Config'
 ReactDOM.render(
-  <React.StrictMode>
+  <UserAuthContextProvider value={{app}}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </UserAuthContextProvider>,
+
+  document.getElementById("root")
 );
 
 

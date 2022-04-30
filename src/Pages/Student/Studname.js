@@ -52,34 +52,17 @@ function Studname() {
         </tr>
         <tr>
           <td>
-            <b>Date of Birth:</b>
-          </td>
-          <td>
-            {" "}
-            <span>15/08/1999</span>{" "}
-          </td>
-          <td>
             <b>Class:</b>{" "}
           </td>
           <td>
             <span>S8 CSE A</span>{" "}
           </td>
-        </tr>
-
-        <tr>
           <td>
             <b>Phone No:</b>
           </td>
           <td>
             {" "}
             <span>7025088620</span>{" "}
-          </td>
-          <td>
-            <b>Address:</b>{" "}
-          </td>
-          <td>
-            {" "}
-            <span>Mahe, Kannur P.O., Kannur</span>{" "}
           </td>
         </tr>
       </table>

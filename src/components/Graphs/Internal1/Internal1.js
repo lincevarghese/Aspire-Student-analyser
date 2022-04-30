@@ -27,7 +27,7 @@ const state = {
       },
       {
         label: "Internal 2",
-        data: [40, 35, 44, 37, 30, 36, 0, 46],
+        data: [40, 35, 44, 37, 30, 36, 0, 50],
         backgroundColor: [
           "rgb(73,85,137)",
           "rgb(73,85,137)",
