@@ -1,87 +1,94 @@
-.attendance {
-	font-family: arial, sans-serif;
+.Attendance {
+  font-family: arial, sans-serif;
   top: -714px;
   left: 400px;
   width: 25cm;
-  border: 1px solid black;
+  border: 1px solid rgb(252, 249, 249);
   text-align: center;
   padding: 14px 28px;
   left: 10cm;
   position: relative;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
+
 .single {
-	font-family: arial, sans-serif;
+  font-family: arial, sans-serif;
   left: 300px;
   top: -680px;
   width: 25cm;
   border: 1px solid black;
   text-align: center;
   padding: 14px 28px;
-  
+
   position: relative;
 }
+
 .single_attendance {
-	font-family: arial, sans-serif;
+  font-family: arial, sans-serif;
   left: 300px;
-  top: -680px;
+  top: -696px;
   width: 25cm;
-  border: 1px solid black;
+  border: 1px solid rgb(253, 253, 253);
   text-align: center;
-  padding: 14px 28px;
-  
+  padding: 10px 28px;
   position: relative;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
+
 .single_sub {
-	font-family: arial, sans-serif;
+  font-family: arial, sans-serif;
   left: 245px;
   top: -680px;
   width: 20cm;
-  border: 1px solid black;
+  border: 1px solid rgb(247, 245, 245);
   text-align: center;
   padding: 14px 28px;
-  
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   position: relative;
 }
+
 .stud_weak {
-	font-family: arial, sans-serif;
+  font-family: arial, sans-serif;
   left: 1060px;
   top: -1186px;
   width: 10cm;
-  border: 1px solid black;
+  border: 1px solid rgb(252, 251, 251);
   text-align: center;
   padding: 14px 28px;
-  
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   position: relative;
 }
+
 .stud_bright {
-	font-family: arial, sans-serif;
+  font-family: arial, sans-serif;
   left: 1061px;
   top: -1234px;
   width: 10cm;
-  border: 1px solid black;
+  border: 1px solid rgb(255, 254, 254);
   text-align: center;
   padding: 14px 28px;
-  
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   position: relative;
 }
 
 tr:nth-child(even) {
   background-color: rgb(224, 240, 255);
 }
-	
+
 .internal {
-	font-family: arial, sans-serif;
-	width: 25cm;
+  font-family: arial, sans-serif;
+  width: 25cm;
   top: -714px;
-	border: 1.5px solid black;
-	border-collapse: collapse;
-	text-align: center;
-	padding: 14px 28px;
-	left: 10cm;
- 	position: relative;
-  }
-  th, td {
-	padding: 5px;
-	text-align: center;    
-  }
-	
+  border: 1.5px solid rgb(253, 252, 252);
+  border-collapse: collapse;
+  text-align: center;
+  padding: 14px 28px;
+  left: 10cm;
+  position: relative;
+}
+
+th,
+td {
+  padding: 5px;
+  text-align: center;
+}

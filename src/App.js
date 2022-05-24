@@ -32,6 +32,8 @@ import Studsignup from './Pages/Login/Studsignup';
 import Teachsignup from './Pages/Login/Teachsignup';
 import Hodsignup from './Pages/Login/Hodsignup';
 import Counsignup from './Pages/Login/Counsignup';
+import SignIn from './Pages/Login/SignIn'
+import ProtectedRoute from './ProtectedRoute';
 
 
 
@@ -46,25 +48,54 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="signup" element={<Signup />} />
+          <Route path="signin" element={<SignIn />} />
           <Route path="studentsignup" element={<Studsignup />} />
-          <Route path="teachersignup" element={<Teachsignup/>}/>
+          <Route path="teachersignup" element={<Teachsignup />} />
           <Route path="hodsignup" element={<Hodsignup />} />
           <Route path="counsellorsignup" element={<Counsignup />} />
 
-          <Route path="student" element={<Student />}>
+          <Route
+            path="student"
+            element={
+             
+                <Student />
+              
+            }
+          >
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="attendance" element={<Attendmain />} />
             <Route path="performance" element={<Performance />} />
             <Route path="timetable" element={<Timetable />} />
           </Route>
-          <Route path="teacher" element={<Teacher />}>
+          <Route
+            path="teacher"
+            element={
+              <ProtectedRoute>
+                <Teacher />
+              </ProtectedRoute>
+            }
+          >
             <Route path="course" element={<Analysis />} />
             <Route path="uploads" element={<Input />} />
             <Route path="class" element={<Studentlist />} />
             <Route path="timetable" element={<Timetable />} />
           </Route>
-          <Route path="counsellor" element={<Counsellor />} />
-          <Route path="hod" element={<Hod />}>
+          <Route
+            path="counsellor"
+            element={
+              <ProtectedRoute>
+                <Counsellor />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="hod"
+            element={
+              <ProtectedRoute>
+                <Hod />
+              </ProtectedRoute>
+            }
+          >
             <Route path="students" element={<Studentlist />} />
             <Route path="attendance" element={<Attendance />} />
             <Route path="performance" element={<Results />} />

@@ -15,7 +15,7 @@ function Login() {
     e.preventDefault();
     try {
       await logIn(email,password);
-      navigate("/student")
+      navigate("/signin")
     } catch (error) {
       setError(error.message);
     }

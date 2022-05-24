@@ -6,7 +6,7 @@ import {Link, useNavigate } from "react-router-dom";
 import {useUserAuth} from "../../Context/userAuthContext"
 import {Alert, alert} from 'react-bootstrap'
 
-import {}
+import {database} from "../../Firebase/Config"
 function Studsignup() {
   
   const[fullname,setFullname]=useState('');
@@ -22,22 +22,31 @@ function Studsignup() {
   const navigate= useNavigate();
   const [error,setError] = useState("");
 
+  function writeUserData(user) {
+    database
+      
+      .ref("users/" + user.uid)
+      .set(user)
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }
+
+
   const handleSubmit =async(e)=>{
      e.preventDefault();
      try{
-      await signUp(email,password,username, fullname, batch,classname,date,admission,role);
-      navigate("/").then(()=>{
-        firebase.firestore().collections('student').add({
-          id:user.id,
-      username: username,
-      fullname:fullname,
-      batch:batch,
-      class:classname,
-      dob:date,
-      admno:admission,
-      role:role,
-        })
-      })
+      await signUp(email,password);
+      var user = {
+        name: fullname,
+        classname:classname,
+        batch: batch,
+        date:date,
+        uid: useUserAuth.uid,
+        email: useUserAuth.email,
+      };
+      writeUserData(user);
+      navigate("/");
      }catch(error){
        setError(error.message);
     }
@@ -132,22 +141,14 @@ function Studsignup() {
                 ></input>
               </div>
               <div className="input-box">
+                <span className="details">Role</span>
                 <input
-                  type="radio"
+                  type="text"
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
-                  name="role"
-                  id="dot-3"
+                  placeholder="student"
+                  required
                 />
-                
-                <span className="details">Role</span>
-                <div className="category">
-                  <label for="dot-3">
-                    <span className="dot three"></span>
-                    <span className="gender" value={student}>Student</span>
-                  </label>
-                  
-                </div>
               </div>
             </div>
 

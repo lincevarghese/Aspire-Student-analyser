@@ -5,6 +5,7 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
+
 import { auth } from "../Firebase/Config";
 
 const userAuthContext = createContext();
@@ -16,7 +17,7 @@ export function UserAuthContextProvider({ children }) {
     return signInWithEmailAndPassword(auth, email, password);
   }
   function signUp(email, password) {
-    return createUserWithEmailAndPassword(auth, email, password);
+    createUserWithEmailAndPassword(auth, email, password)  
   }
   function logOut() {
     return signOut(auth);

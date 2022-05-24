@@ -19,8 +19,8 @@ body {
 .card {
   margin: 20px;
   padding: 20px;
-  width: 350px;
-  height: 100px;
+  width: 365px;
+  height: 125px;
   display: grid;
   grid-template-rows: 5px 30px 1fr 50px;
   border-radius: 10px;
@@ -33,7 +33,9 @@ body {
   transform: scale(1.01);
 }
 
-.card__link,.card__exit,.card__icon {
+.card__link,
+.card__exit,
+.card__icon {
   position: relative;
   text-decoration: none;
   color: rgba(6, 5, 8, 0.9);
@@ -53,6 +55,7 @@ body {
 .card__link:hover::after {
   width: 100%;
 }
+
 .card__title {
   font-weight: 400;
   color: black;
@@ -75,6 +78,7 @@ body {
 .card-3 {
   background: radial-gradient(white, rgb(255, 254, 254));
 }
+
 .card-4 {
   background: radial-gradient(white, rgb(255, 254, 254));
 }
@@ -86,18 +90,25 @@ body {
     margin-top: 5cm;
   }
 }
-.wrapper{
-    
-    display:grid;
-    grid-template-columns: 400px 400px;
+
+.wrapper {
+
+  display: grid;
+  grid-template-columns: 400px 400px;
 }
-.button{
-    padding: 2px 5px;
-    outline: none;
+
+.button {
+  padding: 2px 5px;
+  outline: none;
+
 }
-.button:hover{
-    background-color: turquoise;
+
+.button:hover {
+  background-color: turquoise;
 }
-.button_s{
+
+.button_s {
   display: inline-block;
+  position: absolute;
+
 }
