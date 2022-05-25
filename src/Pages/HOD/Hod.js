@@ -18,7 +18,6 @@ function Hod() {
     <div className="hod">
       <Topbar />
       <Navbar />
-      <Yearcard />
       <Outlet />
     </div>
   );

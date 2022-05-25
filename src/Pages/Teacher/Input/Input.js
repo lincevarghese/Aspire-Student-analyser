@@ -45,7 +45,7 @@ function Input() {
   function writeToDatabase1() {
     items.map((d) =>
       set(ref(db, "Mark1/" + d.Name), {
-        Name: d.Name,
+        
         cs201: d.cs201,
         cs203: d.cs203,
         cs205: d.cs205,
@@ -58,33 +58,61 @@ function Input() {
   function writeToDatabase2() {
     items.map((d) =>
       set(ref(db, "Mark2/" + d.Name), {
-        Name: d.Name,
-        Attendance: d.Attendance,
-        Mark: d.Mark,
+        
+        cs201: d.cs201,
+        cs203: d.cs203,
+        cs205: d.cs205,
+        cs207: d.cs207,
+        cs209: d.cs209,
+        cs265: d.cs265,
       })
     );
   }
   function writeToDatabase3() {
     items.map((d) =>
       set(ref(db, "Grade/" + d.Name), {
-        Name: d.Name,
-        Attendance: d.Attendance,
-        Mark: d.Mark,
+        S1: d.S1,
+        S2: d.S2,
+        S3: d.S3,
+        S4: d.S4,
+        S5: d.S5,
+        RS: d.RS,
       })
     );
   }
   function writeToDatabase4() {
     items.map((d) =>
       set(ref(db, "Attendance/" + d.Name), {
-        Name: d.Name,
-        Attendance: d.Attendance,
-        Mark: d.Mark,
+        cs201: d.cs201,
+        cs203: d.cs203,
+        cs205: d.cs205,
+        cs207: d.cs207,
+        cs209: d.cs209,
+        cs265: d.cs265,
+      })
+    );
+  }
+  function writeToDatabase5() {
+    items.map((d) =>
+      set(ref(db, "Subject1/" + d.Name), {
+        internal1:d.internal1,
+        internal2:d.internal2,
+        attendance:d.attendance,
+      })
+    );
+  }
+  function writeToDatabase6() {
+    items.map((d) =>
+      set(ref(db, "Subject2/" + d.Name), {
+        internal1:d.internal1,
+        internal2:d.internal2,
+        attendance:d.attendance,
       })
     );
   }
   return (
     <div>
-      <ToastContainer/>
+      <ToastContainer />
       <div className="cards wrapper">
         <div className="card card-1">
           <h2 className="card__title">Internal Marks 1</h2>
@@ -105,7 +133,6 @@ function Input() {
             >
               Submit
             </button>
-            
           </p>
         </div>
         <div className="card card-1">
@@ -164,6 +191,48 @@ function Input() {
             <button
               onClick={() => {
                 writeToDatabase4();
+                notify();
+              }}
+            >
+              Submit
+            </button>
+          </p>
+        </div>
+        <div className="card card-1">
+          <h2 className="card__title">Subject 1</h2>
+          <p className="card__apply">
+            <br></br>
+            <input
+              type="file"
+              onChange={(e) => {
+                const file = e.target.files[0];
+                readExcel(file);
+              }}
+            />
+            <button
+              onClick={() => {
+                writeToDatabase5();
+                notify();
+              }}
+            >
+              Submit
+            </button>
+          </p>
+        </div>
+        <div className="card card-1">
+          <h2 className="card__title">Subject 2</h2>
+          <p className="card__apply">
+            <br></br>
+            <input
+              type="file"
+              onChange={(e) => {
+                const file = e.target.files[0];
+                readExcel(file);
+              }}
+            />
+            <button
+              onClick={() => {
+                writeToDatabase6();
                 notify();
               }}
             >

@@ -1,5 +1,7 @@
 import React from 'react';
 import {Bar} from 'react-chartjs-2';
+import {db} from '../../../Firebase/Config'
+import { ref, set } from "firebase/database";
 import './Internal1.css';
 
 const state = {

@@ -1,7 +1,7 @@
 .Attendance {
   font-family: arial, sans-serif;
   top: -714px;
-  left: 400px;
+  left: 600px;
   width: 25cm;
   border: 1px solid rgb(252, 249, 249);
   text-align: center;
@@ -10,6 +10,11 @@
   position: relative;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
+
+.heading{
+  top:-712px;
+  left:240px;
+} 
 
 .single {
   font-family: arial, sans-serif;

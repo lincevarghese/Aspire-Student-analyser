@@ -4,48 +4,49 @@ import './Signup.css'
 import {useState} from 'react'
 import {Link, useNavigate } from "react-router-dom";
 import {useUserAuth} from "../../Context/userAuthContext"
-import {Alert, alert} from 'react-bootstrap'
+import {Alert} from 'react-bootstrap'
+import {uid} from "uid";
+import {db} from "../../Firebase/Config"
+import {ref, set } from 'firebase/database';
 
-import {database} from "../../Firebase/Config"
+
 function Studsignup() {
+
   
   const[fullname,setFullname]=useState('');
-  const[username,setUsername]=useState('');
   const[email,setEmail]=useState('');
   const [password,setPassword] = useState('');
   const [classname, setClass] = useState('');
-  const [batch, setBatch] = useState('');
-  const [role, setRole] = useState('');
+  const [batch, setBatch] = useState("");
+  const [role, setRole] = useState("");
   const [date, setDate] = useState("");
   const [admission, setAdmission] = useState("");
   const {signUp} = useUserAuth();
   const navigate= useNavigate();
   const [error,setError] = useState("");
 
-  function writeUserData(user) {
-    database
-      
-      .ref("users/" + user.uid)
-      .set(user)
-      .catch((error) => {
-        console.log(error.message);
-      });
+  function writeUserData(){
+    const uuid = uid();
+    set(ref(db,`/${uuid}`),{
+      uuid,
+     email:email,
+    name:fullname,
+     division:classname,
+     batch:batch,
+     dob:date,
+     admn:admission,
+     role:role,
+    })
   }
 
+
+   
 
   const handleSubmit =async(e)=>{
      e.preventDefault();
      try{
       await signUp(email,password);
-      var user = {
-        name: fullname,
-        classname:classname,
-        batch: batch,
-        date:date,
-        uid: useUserAuth.uid,
-        email: useUserAuth.email,
-      };
-      writeUserData(user);
+      writeUserData();
       navigate("/");
      }catch(error){
        setError(error.message);
@@ -69,16 +70,7 @@ function Studsignup() {
                   required
                 ></input>
               </div>
-              <div className="input-box">
-                <span className="details">Username</span>
-                <input
-                  type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  placeholder="Enter a username"
-                  required
-                ></input>
-              </div>
+              
               <div className="input-box">
                 <span className="details">Email</span>
                 <input
@@ -146,7 +138,7 @@ function Studsignup() {
                   type="text"
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
-                  placeholder="student"
+                  placeholder="Student"
                   required
                 />
               </div>

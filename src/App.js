@@ -21,10 +21,11 @@ import Performance from './Pages/Student/Performance';
 import Internal1 from './components/Graphs/Internal1/Internal1';
 import Courses from './Pages/Teacher/Courses/Courses';
 import Input from './Pages/Teacher/Input/Input';
+import {RealtimeData} from './Pages/Teacher/Input/Input2';
 import Studentlist from './components/List/Studentlist';
 import Results from './components/List/Results';
 import Attendmain from './Pages/Student/Attendmain';
-import Attendance from './components/List/Attendance';
+import {Attendance1} from './components/List/Attendance';
 import Dashboard from "./Pages/Student/Dashboard";
 import Timetable from './Pages/Teacher/Timetable';
 import Analysis from './Pages/Teacher/Courses/Analysis/Analysis';
@@ -35,18 +36,13 @@ import Counsignup from './Pages/Login/Counsignup';
 import SignIn from './Pages/Login/SignIn'
 import ProtectedRoute from './ProtectedRoute';
 
-
-
-
-
-
 function App() {
   
   return (
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<RealtimeData />} />
           <Route path="signup" element={<Signup />} />
           <Route path="signin" element={<SignIn />} />
           <Route path="studentsignup" element={<Studsignup />} />
@@ -54,50 +50,24 @@ function App() {
           <Route path="hodsignup" element={<Hodsignup />} />
           <Route path="counsellorsignup" element={<Counsignup />} />
 
-          <Route
-            path="student"
-            element={
-             
-                <Student />
-              
-            }
-          >
+          <Route path="student" element={<Student />}>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="attendance" element={<Attendmain />} />
             <Route path="performance" element={<Performance />} />
             <Route path="timetable" element={<Timetable />} />
           </Route>
-          <Route
-            path="teacher"
-            element={
-              <ProtectedRoute>
-                <Teacher />
-              </ProtectedRoute>
-            }
-          >
-            <Route path="course" element={<Analysis />} />
+          <Route path="teacher" element={<Teacher />}>
+            <Route path="course" element={<Courses />}>
+            <Route path="analysis1" element={<Analysis />} />
+            </Route>
             <Route path="uploads" element={<Input />} />
             <Route path="class" element={<Studentlist />} />
             <Route path="timetable" element={<Timetable />} />
           </Route>
-          <Route
-            path="counsellor"
-            element={
-              <ProtectedRoute>
-                <Counsellor />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="hod"
-            element={
-              <ProtectedRoute>
-                <Hod />
-              </ProtectedRoute>
-            }
-          >
+          <Route path="counsellor" element={<Counsellor />} />
+          <Route path="hod" element={<Hod />}>
             <Route path="students" element={<Studentlist />} />
-            <Route path="attendance" element={<Attendance />} />
+            <Route path="attendance" element={<Attendance1 />} />
             <Route path="performance" element={<Results />} />
             <Route path="counselling" element={<Studentlist />} />
             <Route path="timetable" element={<Timetable />} />

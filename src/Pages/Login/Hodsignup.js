@@ -4,7 +4,10 @@ import './Signup.css'
 import {useState} from 'react'
 import {Link, useNavigate } from "react-router-dom";
 import {useUserAuth} from "../../Context/userAuthContext"
-import {Alert, alert} from 'react-bootstrap'
+import {Alert} from 'react-bootstrap'
+import { uid } from "uid";
+import { db } from "../../Firebase/Config";
+import { ref, set } from "firebase/database";
 
 function Hodsignup() {
   
@@ -12,16 +15,28 @@ function Hodsignup() {
   const[username,setUsername]=useState('');
   const[email,setEmail]=useState('');
   const [password,setPassword] = useState('');
-  const[staffid,setStaffid] = useState('');
+  const[department,setDepartment] = useState('');
   const [role, setRole] = useState('');
   const {signUp} = useUserAuth();
   const navigate= useNavigate();
   const [error,setError] = useState("");
 
+  function writeUserData() {
+    const uuid = uid();
+    set(ref(db, `/${uuid}`), {
+      uuid,
+      email: email,
+      name:fullname,
+      dept:department,
+      role:role,
+    });
+  }
+
    const handleSubmit =async(e)=>{
      e.preventDefault();
      try{
       await signUp(email,password);
+      writeUserData();
       navigate("/")
      }catch(error){
        setError(error.message);
@@ -77,30 +92,24 @@ function Hodsignup() {
                 ></input>
               </div>
               <div className="input-box">
-                <span className="details">Employee no</span>
+                <span className="details">Department</span>
                 <input
                   type="text"
-                  value={staffid}
-                  onChange={(e) => setStaffid(e.target.value)}
-                  placeholder="18/CS/001"
+                  value={department}
+                  onChange={(e) => setDepartment(e.target.value)}
+                  placeholder="CSE"
                   required
                 ></input>
               </div>
               <div className="input-box">
+                <span className="details">Role</span>
                 <input
-                  type="radio"
+                  type="text"
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
-                  name="role"
-                  id="dot-2"
+                  placeholder="HoD"
+                  required
                 />
-                <span className="details">Role</span>
-                <div className="category">
-                  <label for="dot-2">
-                    <span className="dot two"></span>
-                    <span className="gender">HoD</span>
-                  </label>
-                </div>
               </div>
             </div>
 

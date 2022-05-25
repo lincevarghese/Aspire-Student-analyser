@@ -4,26 +4,42 @@ import './Signup.css'
 import {useState} from 'react'
 import {Link, useNavigate } from "react-router-dom";
 import {useUserAuth} from "../../Context/userAuthContext"
-import {Alert, alert} from 'react-bootstrap'
+import {Alert} from 'react-bootstrap'
+import { uid } from "uid";
+import { db } from "../../Firebase/Config";
+import { ref, set } from "firebase/database";
 
 function Teachsignup() {
   
   const[fullname,setFullname]=useState('');
-  const[username,setUsername]=useState('');
+  
   const[email,setEmail]=useState('');
   const [password,setPassword] = useState('');
   const [classname, setClass] = useState('');
-  const [batch, setBatch] = useState('');
   const [role, setRole] = useState('');
   const [facultyno, setFacnumber] = useState("");
   const {signUp} = useUserAuth();
   const navigate= useNavigate();
   const [error,setError] = useState("");
 
+
+  function writeUserData() {
+    const uuid = uid();
+    set(ref(db, `/${uuid}`), {
+      uuid,
+      email: email,
+      name: fullname,
+      dept: classname,
+      role: role,
+      facultyid:facultyno,
+    });
+  }
+
    const handleSubmit =async(e)=>{
      e.preventDefault();
      try{
       await signUp(email,password);
+      writeUserData();
       navigate("/")
      }catch(error){
        setError(error.message);
@@ -44,16 +60,6 @@ function Teachsignup() {
                   value={fullname}
                   onChange={(e) => setFullname(e.target.value)}
                   placeholder="Enter your name"
-                  required
-                ></input>
-              </div>
-              <div className="input-box">
-                <span className="details">Username</span>
-                <input
-                  type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  placeholder="Enter a username"
                   required
                 ></input>
               </div>
@@ -79,22 +85,12 @@ function Teachsignup() {
                 ></input>
               </div>
               <div className="input-box">
-                <span className="details">Batch</span>
-                <input
-                  type="text"
-                  value={batch}
-                  onChange={(e) => setBatch(e.target.value)}
-                  placeholder="2018-2022"
-                  required
-                ></input>
-              </div>
-              <div className="input-box">
-                <span className="details">Class</span>
+                <span className="details">Department</span>
                 <input
                   type="text"
                   value={classname}
                   onChange={(e) => setClass(e.target.value)}
-                  placeholder="A or B"
+                  placeholder="CSE"
                   required
                 ></input>
               </div>
@@ -111,20 +107,14 @@ function Teachsignup() {
               </div>
               <br></br>
               <div className="input-box">
+                <span className="details">Role</span>
                 <input
-                  type="radio"
+                  type="text"
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
-                  name="role"
-                  id="dot-4"
+                  placeholder="Teacher"
+                  required
                 />
-                <span className="details">Role</span>
-                <div className="category">
-                  <label for="dot-4">
-                    <span className="dot four"></span>
-                    <span className="gender">Teacher</span>
-                  </label>
-                </div>
               </div>
             </div>
 
