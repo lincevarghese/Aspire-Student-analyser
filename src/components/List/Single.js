@@ -1,125 +1,75 @@
-import "./Form.css"
+import "./Form.css";
+import React from "react";
+import {
+  getDatabase,
+  ref,
+  onValue,
+  startAt,
+  orderByChild,
+  query,
+  limitToFirst,
+} from "firebase/database";
+import { Table } from "react-bootstrap";
 
-function Single() {
-return (
-  <div>
+const db = getDatabase();
+export class RealtimeDataSingle extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      tableData: [],
+    };
+  }
+  componentDidMount() {
+    const dbRef = (ref(db, "Subject1/"));
+    onValue(dbRef, (snapshot) => {
+      let records = [];
+      snapshot.forEach((childSnapshot) => {
+        let keyName = childSnapshot.key;
+        let data = childSnapshot.val();
+        records.push({ key: keyName, data: data });
+      });
+      this.setState({ tableData: records });
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        {/*
     <table className="single_sub">
       <tr>
         <th>
           <h3 align="center">402 Data Mining</h3>
         </th>
       </tr>
-    </table>
-    <table className="single_sub">
-      <tr>
-        <th rowSpan={2}>Roll No.</th>
-        <th rowSpan={2}>Student Name</th>
-        <th rowSpan={2}>Attendence</th>
-        <th rowSpan={2}>Internal 1</th>
-        <th rowSpan={2}>Internal 2</th>
-      </tr>
-      <tr></tr>
-      <tr>
-        <th>1.</th>
-        <td>Abhinand NS</td>
-        <td>96%</td>
-        <td>47</td>
-        <td>42</td>
-      </tr>
-      <tr>
-        <th>2.</th>
-        <td>Akshay Raj</td>
-        <td>66%</td>
-        <td>21</td>
-        <td>12</td>
-      </tr>
-      <tr>
-        <th>3.</th>
-        <td>Berlin Rosy</td>
-        <td>87%</td>
-        <td>47</td>
-        <td>48</td>
-      </tr>
-      <tr>
-        <th>4.</th>
-        <td>Catherine Stephen</td>
-        <td>90%</td>
-        <td>18</td>
-        <td>20</td>
-      </tr>
-      <tr>
-        <th>5.</th>
-        <td>Dayana Kurian</td>
-        <td>96%</td>
-        <td>47</td>
-        <td>46</td>
-      </tr>
-      <tr>
-        <th>6.</th>
-        <td>Elton Antony</td>
-        <td>94%</td>
-        <td>45</td>
-        <td>47</td>
-      </tr>
-      <tr>
-        <th>7.</th>
-        <td>Jyothis Anto</td>
-        <td>79%</td>
-        <td>48</td>
-        <td>44</td>
-      </tr>
-      <tr>
-        <th>8.</th>
-        <td>Kripa Joy</td>
-        <td>96%</td>
-        <td>39</td>
-        <td>41</td>
-      </tr>
-      <tr>
-        <th>9.</th>
-        <td>Liss Joice</td>
-        <td>85%</td>
-        <td>35</td>
-        <td>45</td>
-      </tr>
-      <tr>
-        <th>10.</th>
-        <td>Listin Stephen</td>
-        <td>69%</td>
-        <td>17</td>
-        <td>22</td>
-      </tr>
-      <tr>
-        <th>11.</th>
-        <td>Anto Antony</td>
-        <td>79%</td>
-        <td>48</td>
-        <td>44</td>
-      </tr>
-      <tr>
-        <th>12.</th>
-        <td>Joy Mathew</td>
-        <td>96%</td>
-        <td>39</td>
-        <td>41</td>
-      </tr>
-      <tr>
-        <th>13.</th>
-        <td>Joice George</td>
-        <td>85%</td>
-        <td>35</td>
-        <td>45</td>
-      </tr>
-      <tr>
-        <th>10.</th>
-        <td>Stephen Diaz</td>
-        <td>69%</td>
-        <td>17</td>
-        <td>22</td>
-      </tr>
-    </table>
-  </div>
-);
+</table>*/}
+        <Table className="single_sub">
+          <thead>
+            <tr>
+              {/* <th>#</th> */}
+              <th>Roll No</th>
+              <th>Name</th>
+              <th>Attendance</th>
+              <th>Internal1</th>
+              <th>Internal2</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.tableData.map((row, index) => {
+              return (
+                <tr>
+                
+                  <td>{row.data.RollNo}</td>
+                  <td>{row.data.Name}</td> 
+                  <td>{row.data.attendance}</td>
+                  <td>{row.data.internal1}</td>
+                  <td>{row.data.internal2}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </Table>
+      </div>
+    );
+  }
 }
-
-export default Single;

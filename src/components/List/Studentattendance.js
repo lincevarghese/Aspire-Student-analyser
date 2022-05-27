@@ -1,47 +1,71 @@
 import "./Form.css"
+import { db } from "../../Firebase/Config";
+import { useState, useEffect } from "react";
+import {
+  getDatabase,
+  ref,
+  onValue,
+  startAt,
+  orderByChild,
+  query,
+  equalTo,
+} from "firebase/database";
 
 function Studentattendance() {
-return (
+const [data, setData] = useState({});
+useEffect(() => {
+  const dbRef = query(ref(db, "Attendance/"),orderByChild('Name'),equalTo("Jasmine James")); 
+  onValue(dbRef, (snapshot) => {
+    if (snapshot.val() != null) {
+      setData({ ...snapshot.val() });
+    } else {
+      setData({});
+    }
+  });
+  return () => {
+    setData({});
+  };
+}, []);
+ return (
   <div>
-    <table className="single_attendance">
-      <th>% Attendence for Each Subject</th>
-    </table>
+    {Object.keys(data).map((row, index) => {
+        return (
+          <>
+            <table className="single_attendance">
+              <th>% Attendence for Each Subject</th>
+            </table>
 
-    <table className="single_attendance">
-      <tr>
-        <th>Roll No.</th>
-        <th>Student Name</th>
-        <th></th>
+            <table className="single_attendance">
+              <tr>
+                
+                
+                <th>CS201</th>
+                <th>CS203</th>
+                <th>CS205</th>
+                <th>CS207</th>
+                <th>CS209</th>
+                <th>CS265</th>
+              </tr>
+              
 
-        <th></th>
-        <th>CS402</th>
-        <th>CS404</th>
-        <th>CS406</th>
-        <th>CS408</th>
-        <th>CS462</th>
-        <th>CS472</th>
-      </tr>
-      <tr></tr>
-      <tr></tr>
+              <tr>
+                
+                
+                
 
-      <tr>
-        <th rowSpan={4}>1.</th>
-        <th rowSpan={4}>Abhishek John</th>
-        <td rowSpan={4}>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </td>
-        <td></td>
-
-        <td>76%</td>
-        <td>62%</td>
-        <td>81%</td>
-        <td>90%</td>
-        <td>84%</td>
-        <td>92%</td>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      </tr>
-      <tr></tr>
-    </table>
+                <td>{data[row].cs201}</td>
+                <td>{data[row].cs203}</td>
+                <td>{data[row].cs205}</td>
+                <td>{data[row].cs207}</td>
+                <td>{data[row].cs209}</td>
+                <td>{data[row].cs265}</td>
+                
+              </tr>
+              <tr></tr>
+            </table>
+          </>
+        );
+  })}
   </div>
 );
 }

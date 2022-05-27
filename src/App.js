@@ -35,6 +35,8 @@ import Hodsignup from './Pages/Login/Hodsignup';
 import Counsignup from './Pages/Login/Counsignup';
 import SignIn from './Pages/Login/SignIn'
 import ProtectedRoute from './ProtectedRoute';
+import Studentoverall from './components/List/Studentoverall';
+import Counselling from './Pages/HOD/Counselling';
 
 function App() {
   
@@ -42,7 +44,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<RealtimeData />} />
+          <Route path="/" element={<Login />} />
           <Route path="signup" element={<Signup />} />
           <Route path="signin" element={<SignIn />} />
           <Route path="studentsignup" element={<Studsignup />} />
@@ -57,16 +59,17 @@ function App() {
             <Route path="timetable" element={<Timetable />} />
           </Route>
           <Route path="teacher" element={<Teacher />}>
-            <Route path="course" element={<Courses />}>
-            <Route path="analysis1" element={<Analysis />} />
+            <Route path="course" element={<Analysis />}>
+              <Route path="analysis1" element={<Analysis />} />
             </Route>
             <Route path="uploads" element={<Input />} />
             <Route path="class" element={<Studentlist />} />
-            <Route path="timetable" element={<Timetable />} />
+            <Route path="timetable" element={<Counselling />} />
           </Route>
           <Route path="counsellor" element={<Counsellor />} />
           <Route path="hod" element={<Hod />}>
             <Route path="students" element={<Studentlist />} />
+            <Route path="students/:id" element={<Studentoverall />} />
             <Route path="attendance" element={<Attendance1 />} />
             <Route path="performance" element={<Results />} />
             <Route path="counselling" element={<Studentlist />} />

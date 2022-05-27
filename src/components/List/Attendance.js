@@ -38,13 +38,14 @@ export class Attendance1 extends React.Component {
           <thead>
             <tr>
               {/* <th>#</th> */}
+              <th>Roll No</th>
               <th>Name</th>
-              <th>cs201</th>
-              <th>cs203</th>
-              <th>cs205</th>
-              <th>cs207</th>
-              <th>cs209</th>
-              <th>cs265</th>
+              <th>CS201</th>
+              <th>CS203</th>
+              <th>CS205</th>
+              <th>CS207</th>
+              <th>CS209</th>
+              <th>CS265</th>
             </tr>
           </thead>
           <tbody>
@@ -52,7 +53,8 @@ export class Attendance1 extends React.Component {
               return (
                 <tr>
                   {/*<td>{index}</td>*/}
-                  <td>{row.key}</td>
+                  <td>{row.data.RollNo}</td>
+                  <td>{row.data.Name}</td>
                   {/* <td>{row.data.Name}</td> */}
                   <td>{row.data.cs201}</td>
                   <td>{row.data.cs203}</td>

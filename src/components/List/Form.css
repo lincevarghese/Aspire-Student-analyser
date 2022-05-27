@@ -24,7 +24,7 @@
   border: 1px solid black;
   text-align: center;
   padding: 14px 28px;
-
+  background-color: white;
   position: relative;
 }
 
@@ -78,6 +78,14 @@
 
 tr:nth-child(even) {
   background-color: rgb(224, 240, 255);
+}
+
+.row1{
+  background-color: rgb(224, 240, 255);
+}
+.row2 {
+  color: rgb(1, 10, 2);
+  text-decoration: solid black;
 }
 
 .internal {

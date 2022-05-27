@@ -4,6 +4,7 @@ import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import ClassIcon from "@mui/icons-material/Class";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import EventNoteIcon from "@mui/icons-material/EventNote";
+import PsychologyIcon from "@mui/icons-material/Psychology";
 import {
   NavLink,
 } from "react-router-dom";
@@ -34,9 +35,9 @@ function Navbar() {
         <NavLink to="timetable" activeClassName="clicked">
           <li className="row">
             <div id="icon">
-              <EventNoteIcon />
+              <PsychologyIcon />
             </div>
-            <div id="title">Timetable</div>
+            <div id="title">Counselling</div>
           </li>
         </NavLink>
         <NavLink to="uploads" activeClassName="active">

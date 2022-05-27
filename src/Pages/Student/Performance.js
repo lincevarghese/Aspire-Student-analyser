@@ -2,12 +2,12 @@ import React from 'react'
 import Internal1 from '../../components/Graphs/Internal1/Internal1'
 import "./Dashboard.css";
 import Uniexam from '../../components/Graphs/Uniexam/Uniexam'
-import Studentoverall from '../../components/List/Studentoverall'
+import Studentoverall1 from '../../components/List/Studentoverall1'
 function Performance() {
   return (
     <>
       
-        <Studentoverall />
+        <Studentoverall1 />
       
       <div className="dash_int">
         <Internal1 />

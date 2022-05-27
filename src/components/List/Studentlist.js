@@ -1,111 +1,70 @@
-import "./Form.css"
+import "./Form.css";
+import React, { useState, useEffect } from "react";
+import { db } from "../../Firebase/Config";
+import { ref, onValue } from "firebase/database";
+import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Studentlist() {
-return (
-	<div>
-	
-		<table className="attendance">
-		<tr>
-		<th>Sl.No</th>
-        <th>Name of the Students</th> 
-		<th>Admission <br></br>No.</th>
-		<th>Roll No.</th>
-		</tr>
-		<tr>
-		<th>1.</th>
-        <td>ABHISHEK JOHN</td>
-		<td>18/CS/001</td>
-		
-		<td>01</td>
-		</tr>
-		<tr>
-		<th>2.</th>
-        <td>ABIN BINOY</td>
-		<td>18/CS/061</td>
-		
-		<td>02</td>
-		</tr>
-		<tr>
-		<th>3.</th>
-		<td>ABY MATHEW</td>
-		<td>18/CS/062</td>
-		
-		<td>03</td>
-		</tr>
-		<tr>
-		<th>4.</th>
-        <td>ADITHYA MENON</td>
-		<td>18/CS/002</td>
-		
-		<td>04</td>
-		</tr>
-		<tr>
-		<th>5.</th>
-        <td>ALAN ANTONY</td>
-		<td>18/CS/003</td>
-		
-		<td>05</td>
-		</tr>
-		<tr>
-		<th>6.</th>
-        <td>ALAN SAJI</td>
-		<td>18/CS/063</td>
-		
-		<td>06</td>
-		</tr>
-		<tr>
-		<th>7.</th>
-        <td>ANNIE ANN BABY</td>
-		<td>18/CS/064</td>
-		
-		<td>07</td>
-		</tr>
-		<tr>
-		<th>8.</th>
-        <td>AMMU KORA</td>
-		<td>18/CS/004</td>
-		
-		<td>08</td>
-		</tr>
-		<tr>
-		<th>9.</th>
-        <td>BINESH KUMAR</td>
-		<td>18/CS/065</td>
-		
-		<td>09</td>
-		</tr>
-		<tr>
-		<th>10.</th>
-        <td>BLESSY PAUL</td>
-		<td>18/CS/005</td>
-		
-		<td>10</td>
-		</tr>
-		<tr>
-		<th>11.</th>
-        <td>BOBY TOM</td>
-		<td>18/CS/006</td>
-		
-		<td>11</td>
-		</tr>
-		<tr>
-		<th>12.</th>
-        <td>CHRIS SIMON</td>
-		<td>18/CS/060</td>
-		
-		<td>12</td>
-		</tr>
-		<tr>
-		<th>13.</th>
-        <td>DENVOR DANIEL</td>
-		<td>18/CS/066</td>
-		
-		<td>13</td>
-		</tr>
-		
-	</table>
-	</div>
-);
+  const [data, setData] = useState({});
+  useEffect(() => {
+    const dbRef = ref(db, "Grade/");
+    onValue(dbRef, (snapshot) => {
+      if (snapshot.val() != null) {
+        setData({ ...snapshot.val() });
+      } else {
+        setData({});
+      }
+    });
+    return () => {
+      setData({});
+    };
+  }, []);
+
+  return (
+    <div>
+      <>
+        <Table className="single_sub">
+          <thead>
+            <tr>
+              {/* <th>#</th> */}
+              <th>Roll No</th>
+              <th>Name</th>
+              <th>S1</th>
+              <th>S2</th>
+              <th>S3</th>
+              <th>S4</th>
+              <th>S5</th>
+              <th>Supply</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.keys(data).map((row, index) => {
+              return (
+                <tr key={row}>
+                  <td>{data[row].RollNo}</td>
+                  <td>{data[row].Name}</td>
+                  <td>{data[row].S1}</td>
+                  <td>{data[row].S2}</td>
+                  <td>{data[row].S3}</td>
+                  <td>{data[row].S4}</td>
+                  <td>{data[row].S5}</td>
+                  <td>{data[row].RS}</td>
+                  {/*<td>{index}</td>*/}
+                  {/* <td>{row.data.Name}</td> */}
+                  <td>
+                    <Link to={`/hod/students/${data[row].RollNo}`}>
+                      <button>View Profile</button>
+                    </Link>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </Table>
+      </>
+    </div>
+  );
 }
 
 export default Studentlist;

@@ -11,7 +11,7 @@ import {ref, set } from 'firebase/database';
 
 
 function Studsignup() {
-
+  
   
   const[fullname,setFullname]=useState('');
   const[email,setEmail]=useState('');
@@ -27,7 +27,7 @@ function Studsignup() {
 
   function writeUserData(){
     const uuid = uid();
-    set(ref(db,`/${uuid}`),{
+    set(ref(db,"User/" +uuid),{
       uuid,
      email:email,
     name:fullname,

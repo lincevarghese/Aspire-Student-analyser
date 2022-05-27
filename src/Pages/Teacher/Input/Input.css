@@ -16,6 +16,37 @@ body {
   justify-content: space-between;
 }
 
+.download1{
+  top: -94px;
+  left:170px;
+position: relative;
+}
+.download2{
+  top: -94px;
+  left:170px;
+position: relative;
+}
+.download3{
+  top: -94px;
+  left:68px;
+position: relative;
+}
+.download4{
+  top: -94px;
+  left:121px;
+position: relative;
+}
+.download5{
+  top: -94px;
+  left:100px;
+position: relative;
+}
+.download6{
+  top: -94px;
+  left:100px;
+position: relative;
+}
+
 .card {
   margin: 20px;
   padding: 20px;

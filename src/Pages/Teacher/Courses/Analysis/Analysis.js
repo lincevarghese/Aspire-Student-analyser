@@ -1,17 +1,25 @@
-import React from 'react'
-
-import Bright from '../../../../components/List/Bright'
-import Weak from "../../../../components/List/Weak";
-import Single from '../../../../components/List/Single';
+import React,{useRef} from "react";
+import ReactToPrint from 'react-to-print'
+import { RealtimeDataBright } from "../../../../components/List/Bright";
+import { RealtimeDataWeak } from "../../../../components/List/Weak";
+import { RealtimeDataSingle } from "../../../../components/List/Single";
 
 function Analysis() {
+  
+  
+  
+  
   return (
     <div>
-        <Single/>
-        <Bright/>
-        <Weak/>
+      
+      
+      <div>
+        <RealtimeDataSingle  />
+        <RealtimeDataBright />
+        <RealtimeDataWeak  />
+      </div>
     </div>
-  )
+  );
 }
 
-export default Analysis
+export default Analysis;
