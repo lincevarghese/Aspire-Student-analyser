@@ -1,9 +1,12 @@
 import {Link,useNavigate} from 'react-router-dom'
 import React from "react";
 import './Login.css'
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import { Alert, alert } from "react-bootstrap";
 import { useUserAuth } from "../../Context/userAuthContext";
+
+
+
 function Login() {
   
   const [email, setLoginEmail] = useState("");
@@ -11,11 +14,24 @@ function Login() {
   const [error, setError] = useState("");
   const { logIn } = useUserAuth();
   const navigate = useNavigate();
+  const stud = "jasminjames544@gmail.com";
+  const hod="hod@gmail.com"
+  const teach="teacher@gmail.com"
+  const coun="counsellor@gmail.com"
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await logIn(email,password);
-      navigate("/signin")
+      await logIn(email, password);
+      if(email===stud)
+      navigate("/student");
+      else if(email===teach)
+      navigate("/teacher")
+      else if(email===hod)
+      navigate("/hod")
+      else if(email===coun)
+      navigate("/counsellor")
+      else
+      navigate("/signin");
     } catch (error) {
       setError(error.message);
     }

@@ -113,6 +113,7 @@ function Input() {
         S3: d.S3,
         S4: d.S4,
         S5: d.S5,
+        CGPA:d.CGPA,
         RS: d.RS,
       })
     );

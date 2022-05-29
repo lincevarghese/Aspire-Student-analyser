@@ -1,9 +1,7 @@
-import "./Form.css";
-import "../Graphs/Internal1/Internal1.css";
-import "../Graphs/Uniexam/Uniexam.css";
+import "../../components/List/Form.css";
+import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
-import React,{useState,useEffect} from "react";
-import { Line } from "react-chartjs-2";
+import { Line} from "react-chartjs-2";
 import {
   getDatabase,
   ref,
@@ -14,18 +12,17 @@ import {
   query,
   equalTo,
 } from "firebase/database";
-import {useParams} from 'react-router-dom'
+import { useParams } from "react-router-dom";
 import { Table } from "react-bootstrap";
 import { db } from "../../Firebase/Config";
-function Studentoverall() {
+function StudentCoun() {
   const [data1, setData1] = useState({});
   const [data2, setData2] = useState({});
   const [data3, setData3] = useState({});
 
-  const {id}=useParams();
+  const { id } = useParams();
   useEffect(() => {
-    const dbRef1 = 
-      ref(db, `Mark1/${id}`);
+    const dbRef1 = ref(db, `Mark1/${id}`);
     onValue(dbRef1, (snapshot) => {
       if (snapshot.val() != null) {
         setData1({ ...snapshot.val() });
@@ -37,7 +34,7 @@ function Studentoverall() {
       setData1({});
     };
   }, [id]);
-  console.log("user",data1)
+  console.log("user", data1);
   useEffect(() => {
     const dbRef2 = ref(db, `Mark2/${id}`);
     onValue(dbRef2, (snapshot) => {
@@ -51,7 +48,7 @@ function Studentoverall() {
       setData2({});
     };
   }, [id]);
-   console.log("data2", data2);
+  console.log("data2", data2);
   useEffect(() => {
     const dbRef3 = ref(db, `Grade/${id}`);
     onValue(dbRef3, (snapshot) => {
@@ -65,7 +62,7 @@ function Studentoverall() {
       setData3({});
     };
   }, [id]);
-console.log("grade",data3)
+  console.log("grade", data3);
   return (
     <>
       <Table className="single">
@@ -217,29 +214,39 @@ console.log("grade",data3)
         </div>
       </div>
       <div className="P-carduni P-margin P-margin-top P-white">
-      <div className="P-container P-white">
-      <h4><b>Grade Report</b></h4>
-      <div className="chart">
-        <Line
-          data={{
-    labels: ["S1", "S2", "S3", "S4", "S5", ],
-    datasets: [
-      {
-        label: "SGPA",
-        data: [data3.S1,data3.S2, data3.S3, data3.S4, data3.S5, 10.0, 0],
-        borderColor: "rgba(22,98,208,0.6)",
-        fill: true,
-        backgroundColor: "rgb(213,233,242)",
-      },
-    ],
-  }}
-          options={{ }}
-        />
-      </div>
-      </div>
+        <div className="P-container P-white">
+          <h4>
+            <b>Grade Report</b>
+          </h4>
+          <div className="chart">
+            <Line
+              data={{
+                labels: ["S1", "S2", "S3", "S4", "S5"],
+                datasets: [
+                  {
+                    label: "SGPA",
+                    data: [
+                      data3.S1,
+                      data3.S2,
+                      data3.S3,
+                      data3.S4,
+                      data3.S5,
+                      10.0,
+                      0,
+                    ],
+                    borderColor: "rgba(22,98,208,0.6)",
+                    fill: true,
+                    backgroundColor: "rgb(213,233,242)",
+                  },
+                ],
+              }}
+              options={{}}
+            />
+          </div>
+        </div>
       </div>
     </>
   );
 }
 
-export default Studentoverall;
+export default StudentCoun;

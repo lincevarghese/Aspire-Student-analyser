@@ -1,6 +1,6 @@
 .Attendance {
   font-family: arial, sans-serif;
-  top: -714px;
+  top: -680px;
   left: 600px;
   width: 25cm;
   border: 1px solid rgb(252, 249, 249);
@@ -15,7 +15,26 @@
   top:-712px;
   left:240px;
 } 
+.buttonclick1{
+  color:rgb(13, 1, 1);
+  background-color: aliceblue;
+  border-radius: 5px;
+  width: 100px;
+}
 
+.buttonclick1:hover{
+  background-color: rgb(117, 192, 232);
+}
+.buttonclick2 {
+  color: rgb(13, 1, 1);
+  background-color: aliceblue;
+  border-radius: 5px;
+  width: 100px;
+}
+
+.buttonclick2:hover {
+  background-color: rgb(117, 192, 232);
+}
 .single {
   font-family: arial, sans-serif;
   left: 300px;
@@ -42,7 +61,18 @@
 
 .single_sub {
   font-family: arial, sans-serif;
-  left: 245px;
+  left: 265px;
+  top: -680px;
+  width: 20cm;
+  border: 1px solid rgb(247, 245, 245);
+  text-align: center;
+  padding: 14px 28px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+.single_sub1 {
+  font-family: arial, sans-serif;
+  left: 265px;
   top: -680px;
   width: 20cm;
   border: 1px solid rgb(247, 245, 245);
@@ -63,11 +93,33 @@
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   position: relative;
 }
+.stud_weak2 {
+  font-family: arial, sans-serif;
+  left: 1060px;
+  top: -1322px;
+  width: 10cm;
+  border: 1px solid rgb(252, 251, 251);
+  text-align: center;
+  padding: 14px 28px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  position: relative;
+}
 
 .stud_bright {
   font-family: arial, sans-serif;
   left: 1061px;
   top: -1234px;
+  width: 10cm;
+  border: 1px solid rgb(255, 254, 254);
+  text-align: center;
+  padding: 14px 28px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+.stud_bright2 {
+  font-family: arial, sans-serif;
+  left: 1061px;
+  top: -1374px;
   width: 10cm;
   border: 1px solid rgb(255, 254, 254);
   text-align: center;
@@ -105,3 +157,4 @@ td {
   padding: 5px;
   text-align: center;
 }
+

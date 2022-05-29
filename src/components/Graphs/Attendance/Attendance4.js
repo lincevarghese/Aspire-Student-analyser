@@ -8,7 +8,7 @@ const state = {
     datasets: [
       {
         label: "Attendance",
-        data: [75, 25],
+        data: [78, 22],
         backgroundColor: [
           "rgba(22,98,208,0.6)",
           "rgb(213,233,242)",
@@ -20,11 +20,13 @@ const state = {
 };
 
 export default function Attendance4() {
+ 
+  
   return (
     <div className="AT-card4 AT-margin AT-margin-top AT-white">
       <div className="AT-container AT-white">
         <h4>
-          <b>Attendance</b>
+          <b>Attendance: CS207</b>
         </h4>
         <div className="chart">
           <Doughnut data={state.chartData} options={{}} />

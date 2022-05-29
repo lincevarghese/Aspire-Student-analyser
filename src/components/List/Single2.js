@@ -12,7 +12,7 @@ import {
 import { Table } from "react-bootstrap";
 
 const db = getDatabase();
-export class RealtimeDataSingle extends React.Component {
+export class RealtimeDataSingle2 extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -20,7 +20,7 @@ export class RealtimeDataSingle extends React.Component {
     };
   }
   componentDidMount() {
-    const dbRef = (ref(db, "Subject1/"));
+    const dbRef = ref(db, "Subject2/");
     onValue(dbRef, (snapshot) => {
       let records = [];
       snapshot.forEach((childSnapshot) => {
@@ -43,7 +43,7 @@ export class RealtimeDataSingle extends React.Component {
         </th>
       </tr>
 </table>*/}
-        <Table className="single_sub">
+        <Table className="single_sub1">
           <thead>
             <tr>
               {/* <th>#</th> */}
@@ -58,9 +58,8 @@ export class RealtimeDataSingle extends React.Component {
             {this.state.tableData.map((row, index) => {
               return (
                 <tr>
-                
                   <td>{row.data.RollNo}</td>
-                  <td>{row.data.Name}</td> 
+                  <td>{row.data.Name}</td>
                   <td>{row.data.attendance}</td>
                   <td>{row.data.internal1}</td>
                   <td>{row.data.internal2}</td>

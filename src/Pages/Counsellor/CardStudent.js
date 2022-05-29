@@ -1,41 +1,58 @@
-import "../../components/List/Form.css"
-import React,{useState, useEffect } from 'react'
+import "../../components/List/Form.css";
+import React, { useState, useEffect } from "react";
 import { db } from "../../Firebase/Config";
-import {ref, onValue, orderByChild,query,startAt} from "firebase/database";
+import { ref, onValue, orderByChild, query, startAt, remove } from "firebase/database";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { toast,ToastContainer } from "react-toastify";
 
-function Counselling() {
-    const [data,setData]=useState({});  
-   	useEffect(() => { 
-     const dbRef =query(ref(db, "Weak/"),orderByChild('RS'),startAt(3));
-     onValue(dbRef, (snapshot) => {
-       if(snapshot.val()!=null){
-         setData({...snapshot.val()});
-       }else{
-         setData({});
-       }
-       });
-       return()=>{
-         setData({});
-       }
-   }, []);
-  
+function CardStudent() {
+  const [data, setData] = useState({});
+  useEffect(() => {
+    const dbRef = query(ref(db, "Weak/"), orderByChild("RS"), startAt(3));
+    onValue(dbRef, (snapshot) => {
+      if (snapshot.val() != null) {
+        setData({ ...snapshot.val() });
+      } else {
+        setData({});
+      }
+    });
+    return () => {
+      setData({});
+    };
+  }, []);
+
+  const onDelete=(row)=>{
+  remove(ref(db,`Weak/${row}`));
+  toast.success("Counselling Completed", {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+  };
+      
+
   return (
     <div>
       <>
+        <ToastContainer />
         <Table className="single_sub">
           <thead>
             <tr>
               {/* <th>#</th> */}
               <th>Roll No</th>
-        	  <th>Name</th>
+              <th>Name</th>
               <th>S1</th>
               <th>S2</th>
               <th>S3</th>
               <th>S4</th>
               <th>S5</th>
               <th>Backlogs</th>
+              <th colSpan={2}>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -55,9 +72,17 @@ function Counselling() {
 						 <td>{row.data.Name}</td>
                           */}
                   <td>
-                    <Link to={`/hod/students/${data[row].RollNo}`}>
+                    <Link to={`/counsellor/students/${data[row].RollNo}`}>
                       <button className="buttonclick2">View Profile</button>
                     </Link>
+                  </td>
+                  <td>
+                    <button
+                      className="buttonclick2"
+                      onClick={() => onDelete(row)}
+                    >
+                      Completed
+                    </button>
                   </td>
                 </tr>
               );
@@ -69,4 +94,4 @@ function Counselling() {
   );
 }
 
-export default Counselling;
+export default CardStudent;

@@ -1,146 +1,152 @@
-import "./Form.css"
+import "./Form.css";
 
+import { Bar } from "react-chartjs-2";
+import React, { useState, useEffect } from "react";
+import { Line } from "react-chartjs-2";
+import {
+  getDatabase,
+  ref,
+  onValue,
+  startAt,
+  orderByChild,
+  orderByValue,
+  query,
+  equalTo,
+} from "firebase/database";
+import { useParams } from "react-router-dom";
+import { Table } from "react-bootstrap";
+import { db } from "../../Firebase/Config";
 function Results() {
-return (
-  <div>
-    <table className="attendance">
-      <tr>
-        <th>Sl.No</th>
-        <th>Name of the Students</th>
-        <th>SEM 1</th>
-        <th>SEM 2</th>
-        <th>SEM 3</th>
-        <th>SEM 4</th>
-        <th>SEM 5</th>
-        <th>&nbsp;&nbsp;&nbsp;</th>
-        <th>CGPA</th>
-        <th>Remaining Supplementary</th>
-      </tr>
-      
+  const [data1, setData1] = useState({});
+  const [data2, setData2] = useState({});
+  const [data3, setData3] = useState({});
 
-      <tr>
-        <th>1.</th>
-        <td>ABHISHEK JOHN</td>
-        <td>7.02</td>
-        <td>6.90</td>
-        <td>6.36</td>
-        <td>7.04</td>
-        <td>7.48</td>
-        <th>&nbsp;&nbsp;&nbsp;</th>
-        <td>0</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <th>2.</th>
-        <td>ABIN BINOY</td>
-        <td>7.34</td>
-        <td>8.03</td>
-        <td>6.01</td>
-        <td>7.4</td>
-        <td>6.50</td>
-        <th>&nbsp;&nbsp;&nbsp;</th>
-        <td>0</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <th>3.</th>
-        <td>ABY MATHEW</td>
-        <td>7.98</td>
-        <td>8.47</td>
-        <td>6.90</td>
-        <td>8.02</td>
-        <td>8.50</td>
-        <th>&nbsp;&nbsp;&nbsp;</th>
-        <td>8.40</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <th>4.</th>
-        <td>ADITHYA MENON</td>
-        <td>6.89</td>
-        <td>6.54</td>
-        <td>5.82</td>
-        <td>6.98</td>
-        <td>7.01</td>
-        <th>&nbsp;&nbsp;&nbsp;</th>
-        <td>0</td>
-        <td>3</td>
-      </tr>
-      <tr>
-        <th>5.</th>
-        <td>ALAN ANTONY</td>
-        <td>7.98</td>
-        <td>7.67</td>
-        <td>6.30</td>
-        <td>7.98</td>
-        <td>7.65</td>
-        <th>&nbsp;&nbsp;&nbsp;</th>
-        <td>7.5</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <th>6.</th>
-        <td>ALAN SAJI</td>
-        <td>6.98</td>
-        <td>7.01</td>
-        <td>5.98</td>
-        <td>6.98</td>
-        <td>7.23</td>
-        <th>&nbsp;&nbsp;&nbsp;</th>
-        <td>0</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <th>7.</th>
-        <td>ANNIE ANN BABY</td>
-        <td>8.34</td>
-        <td>8.45</td>
-        <td>7.56</td>
-        <td>7.98</td>
-        <td>9.30</td>
-        <th>&nbsp;&nbsp;&nbsp;</th>
-        <td>8.98</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <th>8.</th>
-        <td>AMMU KORAH</td>
-        <td>7.76</td>
-        <td>7.70</td>
-        <td>6,54</td>
-        <td>7.20</td>
-        <td>7.58</td>
-        <th>&nbsp;&nbsp;&nbsp;</th>
-        <td>7.34</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <th>9.</th>
-        <td>BINESH KUMAR</td>
-        <td>7.99</td>
-        <td>8.01</td>
-        <td>6.89</td>
-        <td>8.05</td>
-        <td>8.34</td>
-        <th>&nbsp;&nbsp;&nbsp;</th>
-        <td>8.12</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <th>10.</th>
-        <td>BLESSY PAUL</td>
-        <td>7.61</td>
-        <td>7.32</td>
-        <td>6.32</td>
-        <td>7.02</td>
-        <td>7.80</td>
-        <th>&nbsp;&nbsp;&nbsp;</th>
-        <td>0</td>
-        <td>1</td>
-      </tr>
-    </table>
-  </div>
-);
+  const { id } = useParams();
+  useEffect(() => {
+    const dbRef1 = ref(db, 'Grade/');
+    onValue(dbRef1, (snapshot) => {
+      if (snapshot.val() != null) {
+        setData1({ ...snapshot.val() });
+      } else {
+        setData1({});
+      }
+    });
+    return () => {
+      setData1({});
+    };
+  }, [id]);
+  console.log("user", data1);
+  useEffect(() => {
+    const dbRef2 = query(ref(db, "Grade/"),orderByChild('CGPA'),startAt(8.5));
+    onValue(dbRef2, (snapshot) => {
+      if (snapshot.val() != null) {
+        setData2({ ...snapshot.val() });
+      } else {
+        setData2({});
+      }
+    });
+    return () => {
+      setData2({});
+    };
+  }, [id]);
+  console.log("data2", data2);
+  useEffect(() => {
+    const dbRef3 = query(ref(db, "Grade/"), orderByChild("RS"), startAt(3));
+    onValue(dbRef3, (snapshot) => {
+      if (snapshot.val() != null) {
+        setData3({ ...snapshot.val() });
+      } else {
+        setData3({});
+      }
+    });
+    return () => {
+      setData3({});
+    };
+  }, [id]);
+  console.log("grade", data3);
+  return (
+    <>
+      <Table className="single_sub">
+        <thead>
+          <tr>
+            {/* <th>#</th> */}
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>S1</th>
+            <th>S2</th>
+            <th>S3</th>
+            <th>S4</th>
+            <th>S5</th>
+            <th>CGPA</th>
+            <th>Backlogs</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{data1.S1}</td>
+            <td>{data1.S2}</td>
+            <td>{data1.S3}</td>
+            <td>{data1.S4}</td>
+            <td>{data1.S5}</td>
+            <td>{data1.CGPA}</td>
+            <td>{data1.RS}</td>
+          </tr>
+        </tbody>
+
+        <thead>
+          <table className="stud_bright">
+            <tr colspan={5}>
+              <th>
+                <h2>Bright Students</h2>
+              </th>
+            </tr>
+          </table>
+        </thead>
+        <Table className="stud_bright">
+          <tr>
+            <th rowSpan={2}>Roll No.</th>
+            <th rowSpan={2}>Student Name</th>
+          </tr>
+          <tbody>
+            <tr>
+              <td>{data2.RollNo}</td>
+              <td>{data2.Name}</td>
+            </tr>
+          </tbody>
+        </Table>
+
+        <thead>
+          <tr className="row3">
+            {/* <th>#</th> */}
+            <th></th>
+            <th></th>
+            <th>End Semester</th>
+            <th>S1</th>
+            <th>S2</th>
+            <th>S3</th>
+            <th>S4</th>
+            <th>S5</th>
+            <th>Supply</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {/*<td>{index}</td>*/}
+            <td></td>
+            {/* <td>{row.data.Name}</td> */}
+            <td></td>
+            <td>SGPA</td>
+            <td>{data3.S1}</td>
+            <td>{data3.S2}</td>
+            <td>{data3.S3}</td>
+            <td>{data3.S4}</td>
+            <td>{data3.S5}</td>
+            <td>{data3.RS}</td>
+          </tr>
+        </tbody>
+      </Table>
+    </>
+  );
 }
 
 export default Results;

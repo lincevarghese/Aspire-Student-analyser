@@ -25,6 +25,13 @@
     width:33.33333%;
     
 }
+.I1-cardint {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    width: 33.33333%;
+    position: relative;
+    top: -630px;
+    left: 295px;
+}
 
 .I1-margin{
      margin-top: 10px;

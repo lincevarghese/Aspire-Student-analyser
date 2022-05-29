@@ -12,12 +12,10 @@ import { ref, set } from "firebase/database";
 function Teachsignup() {
   
   const[fullname,setFullname]=useState('');
-  
   const[email,setEmail]=useState('');
   const [password,setPassword] = useState('');
   const [classname, setClass] = useState('');
   const [role, setRole] = useState('');
-  const [facultyno, setFacnumber] = useState("");
   const {signUp} = useUserAuth();
   const navigate= useNavigate();
   const [error,setError] = useState("");
@@ -25,13 +23,12 @@ function Teachsignup() {
 
   function writeUserData() {
     const uuid = uid();
-    set(ref(db, `/${uuid}`), {
+    set(ref(db, "User/"+fullname), {
       uuid,
       email: email,
       name: fullname,
       dept: classname,
       role: role,
-      facultyid:facultyno,
     });
   }
 
@@ -84,27 +81,7 @@ function Teachsignup() {
                   required
                 ></input>
               </div>
-              <div className="input-box">
-                <span className="details">Department</span>
-                <input
-                  type="text"
-                  value={classname}
-                  onChange={(e) => setClass(e.target.value)}
-                  placeholder="CSE"
-                  required
-                ></input>
-              </div>
-
-              <div className="input-box">
-                <span className="details">Faculty no.</span>
-                <input
-                  type="text"
-                  value={facultyno}
-                  onChange={(e) => setFacnumber(e.target.value)}
-                  placeholder="18/CS/001"
-                  required
-                ></input>
-              </div>
+              
               <br></br>
               <div className="input-box">
                 <span className="details">Role</span>

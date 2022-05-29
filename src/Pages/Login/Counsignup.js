@@ -20,9 +20,9 @@ function Counsignup() {
   const [error,setError] = useState("");
 
   function writeUserData() {
-    const uuid = uid();
-    set(ref(db, `/${uuid}`), {
-      uuid,
+    
+    set(ref(db, "User/" +fullname), {
+      
       email: email,
       name: fullname,
       role: role,
@@ -84,7 +84,7 @@ function Counsignup() {
                   type="text"
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
-                  placeholder="HoD"
+                  placeholder="Counsellor"
                   required
                 />
               </div>

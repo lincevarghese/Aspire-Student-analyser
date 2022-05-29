@@ -1,26 +1,26 @@
-import "../../components/List/Form.css"
-import React,{useState, useEffect } from 'react'
+import "../../components/List/Form.css";
+import React, { useState, useEffect } from "react";
 import { db } from "../../Firebase/Config";
-import {ref, onValue, orderByChild,query,startAt} from "firebase/database";
+import { ref, onValue, orderByChild, query, startAt } from "firebase/database";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-function Counselling() {
-    const [data,setData]=useState({});  
-   	useEffect(() => { 
-     const dbRef =query(ref(db, "Weak/"),orderByChild('RS'),startAt(3));
-     onValue(dbRef, (snapshot) => {
-       if(snapshot.val()!=null){
-         setData({...snapshot.val()});
-       }else{
-         setData({});
-       }
-       });
-       return()=>{
-         setData({});
-       }
-   }, []);
-  
+function Counselling1() {
+  const [data, setData] = useState({});
+  useEffect(() => {
+    const dbRef = query(ref(db, "Weak/"), orderByChild("RS"), startAt(3));
+    onValue(dbRef, (snapshot) => {
+      if (snapshot.val() != null) {
+        setData({ ...snapshot.val() });
+      } else {
+        setData({});
+      }
+    });
+    return () => {
+      setData({});
+    };
+  }, []);
+
   return (
     <div>
       <>
@@ -29,7 +29,7 @@ function Counselling() {
             <tr>
               {/* <th>#</th> */}
               <th>Roll No</th>
-        	  <th>Name</th>
+              <th>Name</th>
               <th>S1</th>
               <th>S2</th>
               <th>S3</th>
@@ -55,7 +55,7 @@ function Counselling() {
 						 <td>{row.data.Name}</td>
                           */}
                   <td>
-                    <Link to={`/hod/students/${data[row].RollNo}`}>
+                    <Link to={`/teacher/students/${data[row].RollNo}`}>
                       <button className="buttonclick2">View Profile</button>
                     </Link>
                   </td>
@@ -69,4 +69,4 @@ function Counselling() {
   );
 }
 
-export default Counselling;
+export default Counselling1;

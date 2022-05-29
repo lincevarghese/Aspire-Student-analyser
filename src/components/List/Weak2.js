@@ -1,5 +1,4 @@
-import "./Form.css"
-
+import "./Form.css";
 import React from "react";
 import {
   getDatabase,
@@ -8,10 +7,14 @@ import {
   startAt,
   orderByChild,
   query,
+  endAt,
+  orderByKey,
+  orderByValue,
 } from "firebase/database";
 import { Table } from "react-bootstrap";
+
 const db = getDatabase();
-export class Attendance1 extends React.Component {
+export class RealtimeDataWeak2 extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -19,7 +22,11 @@ export class Attendance1 extends React.Component {
     };
   }
   componentDidMount() {
-    const dbRef = ref(db, "Attendance/");
+    const dbRef = query(
+      ref(db, "Subject2"),
+      orderByChild("internal1"),
+      endAt(20)
+    );
     onValue(dbRef, (snapshot) => {
       let records = [];
       snapshot.forEach((childSnapshot) => {
@@ -30,44 +37,38 @@ export class Attendance1 extends React.Component {
       this.setState({ tableData: records });
     });
   }
+
   render() {
     return (
-      <>
-       
-        <Table className="Attendance">
-          <thead>
-            <tr>
-              {/* <th>#</th> */}
-              <th>Roll No</th>
-              <th>Name</th>
-              <th>CS201</th>
-              <th>CS203</th>
-              <th>CS205</th>
-              <th>CS207</th>
-              <th>CS209</th>
-              <th>CS265</th>
-            </tr>
-          </thead>
+      <div>
+        <table className="stud_weak">
+          <tr colspan={5}>
+            <th>
+              <h2>Slow Learners</h2>
+            </th>
+          </tr>
+        </table>
+        <Table className="stud_weak">
+          <tr>
+            <th rowSpan={2}>Roll No.</th>
+            <th rowSpan={2}>Student Name</th>
+          </tr>
           <tbody>
             {this.state.tableData.map((row, index) => {
               return (
                 <tr>
-                  {/*<td>{index}</td>*/}
                   <td>{row.data.RollNo}</td>
                   <td>{row.data.Name}</td>
-                  {/* <td>{row.data.Name}</td> */}
-                  <td>{row.data.cs201}</td>
-                  <td>{row.data.cs203}</td>
-                  <td>{row.data.cs205}</td>
-                  <td>{row.data.cs207}</td>
-                  <td>{row.data.cs209}</td>
-                  <td>{row.data.cs265}</td>
+                  {/* <td>{row.data.Name}</td> 
+                            <td>{row.data.attendance}</td>
+                            <td>{row.data.internal1}</td>
+                            <td>{row.data.internal2}</td> */}
                 </tr>
               );
             })}
           </tbody>
         </Table>
-      </>
+      </div>
     );
   }
 }

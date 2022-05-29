@@ -34,14 +34,7 @@ function Navbar() {
             <div id="title">Performance</div>
           </li>
         </NavLink>
-        <NavLink to="timetable">
-          <li className="row">
-            <div id="icon">
-              <EventNoteIcon />
-            </div>
-            <div id="title">Timetable</div>
-          </li>
-        </NavLink>
+        
       </ul>
     </div>
   );

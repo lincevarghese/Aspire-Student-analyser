@@ -12,23 +12,19 @@ import { ref, set } from "firebase/database";
 function Hodsignup() {
   
   const[fullname,setFullname]=useState('');
-  const[username,setUsername]=useState('');
   const[email,setEmail]=useState('');
   const [password,setPassword] = useState('');
-  const[department,setDepartment] = useState('');
   const [role, setRole] = useState('');
   const {signUp} = useUserAuth();
   const navigate= useNavigate();
   const [error,setError] = useState("");
 
   function writeUserData() {
-    const uuid = uid();
-    set(ref(db, `/${uuid}`), {
-      uuid,
+    
+    set(ref(db, "User/" +fullname), {
       email: email,
-      name:fullname,
-      dept:department,
-      role:role,
+      name: fullname,
+      role: role,
     });
   }
 
@@ -60,16 +56,7 @@ function Hodsignup() {
                   required
                 ></input>
               </div>
-              <div className="input-box">
-                <span className="details">Username</span>
-                <input
-                  type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  placeholder="Enter a username"
-                  required
-                ></input>
-              </div>
+              
               <div className="input-box">
                 <span className="details">Email</span>
                 <input
@@ -91,16 +78,7 @@ function Hodsignup() {
                   required
                 ></input>
               </div>
-              <div className="input-box">
-                <span className="details">Department</span>
-                <input
-                  type="text"
-                  value={department}
-                  onChange={(e) => setDepartment(e.target.value)}
-                  placeholder="CSE"
-                  required
-                ></input>
-              </div>
+              
               <div className="input-box">
                 <span className="details">Role</span>
                 <input

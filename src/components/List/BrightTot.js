@@ -7,14 +7,14 @@ import {
   startAt,
   orderByChild,
   query,
-  endAt,
   orderByKey,
   orderByValue,
+  limitToFirst,
 } from "firebase/database";
 import { Table } from "react-bootstrap";
 
 const db = getDatabase();
-export class RealtimeDataWeak extends React.Component {
+export class BrightTot extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -23,9 +23,9 @@ export class RealtimeDataWeak extends React.Component {
   }
   componentDidMount() {
     const dbRef = query(
-      ref(db, "Subject1"),
-      orderByChild("internal1"),
-      endAt(20)
+      ref(db, "Grade/"),
+      orderByChild("CGPA"),
+      startAt(8.5)
     );
     onValue(dbRef, (snapshot) => {
       let records = [];
@@ -41,14 +41,14 @@ export class RealtimeDataWeak extends React.Component {
   render() {
     return (
       <div>
-        <table className="stud_weak">
+        <table className="stud_bright2">
           <tr colspan={5}>
             <th>
-              <h2>Slow Learners</h2>
+              <h2>Bright Students</h2>
             </th>
           </tr>
         </table>
-        <Table className="stud_weak">
+        <Table className="stud_bright2">
           <tr>
             <th rowSpan={2}>Roll No.</th>
             <th rowSpan={2}>Student Name</th>
@@ -59,7 +59,7 @@ export class RealtimeDataWeak extends React.Component {
                 <tr>
                   <td>{row.data.RollNo}</td>
                   <td>{row.data.Name}</td>
-                  {/* <td>{row.data.Name}</td> 
+                  {/*<td>{row.key}</td>
                             <td>{row.data.attendance}</td>
                             <td>{row.data.internal1}</td>
                             <td>{row.data.internal2}</td> */}

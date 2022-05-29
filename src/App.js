@@ -2,7 +2,6 @@ import './App.css';
 
 
 import { Component, useState } from 'react';
-import Card from './components/Card/CardStudent';
 import {
   BrowserRouter as Router,
   Route,Routes,Switch
@@ -10,7 +9,6 @@ import {
 
 import React from 'react';
 import Login from './Pages/Login/Login';
-import CardStudent from './components/Card/CardStudent';
 import Topbar from './components/Topbar/Topbar';
 import Student from './Pages/Student/Student';
 import Teacher from './Pages/Teacher/Teacher';
@@ -18,7 +16,7 @@ import Counsellor from './Pages/Counsellor/Counsellor';
 import Hod from './Pages/HOD/Hod';
 import Signup from "./Pages/Login/Signup";
 import Performance from './Pages/Student/Performance';
-import Internal1 from './components/Graphs/Internal1/Internal1';
+import Classlist from './Pages/Teacher/Class/Classlist'
 import Courses from './Pages/Teacher/Courses/Courses';
 import Input from './Pages/Teacher/Input/Input';
 import {RealtimeData} from './Pages/Teacher/Input/Input2';
@@ -27,16 +25,21 @@ import Results from './components/List/Results';
 import Attendmain from './Pages/Student/Attendmain';
 import {Attendance1} from './components/List/Attendance';
 import Dashboard from "./Pages/Student/Dashboard";
-import Timetable from './Pages/Teacher/Timetable';
-import Analysis from './Pages/Teacher/Courses/Analysis/Analysis';
+import Analysis from './Pages/Teacher/Courses/Analysis/Analysis1';
 import Studsignup from './Pages/Login/Studsignup';
 import Teachsignup from './Pages/Login/Teachsignup';
 import Hodsignup from './Pages/Login/Hodsignup';
 import Counsignup from './Pages/Login/Counsignup';
 import SignIn from './Pages/Login/SignIn'
-import ProtectedRoute from './ProtectedRoute';
 import Studentoverall from './components/List/Studentoverall';
 import Counselling from './Pages/HOD/Counselling';
+import Counselling1 from './Pages/Teacher/Counselling1';
+import StudentCoun from './Pages/Teacher/StudentCoun';
+import StudentCoun2 from './Pages/Counsellor/StudentCoun2';
+import CardStudent from './Pages/Counsellor/CardStudent';
+import Graph from './components/List/Graph';
+import Analysis1 from './Pages/Teacher/Courses/Analysis/Analysis1';
+import Analysis2 from './Pages/Teacher/Courses/Analysis/Analysis2';
 
 function App() {
   
@@ -56,24 +59,30 @@ function App() {
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="attendance" element={<Attendmain />} />
             <Route path="performance" element={<Performance />} />
-            <Route path="timetable" element={<Timetable />} />
           </Route>
+
           <Route path="teacher" element={<Teacher />}>
-            <Route path="course" element={<Analysis />}>
-              <Route path="analysis1" element={<Analysis />} />
-            </Route>
+            <Route path="course" element={<Courses />} />
+            <Route path="course/analysis1" element={<Analysis1 />} />
+            <Route path="course/analysis2" element={<Analysis2 />} />
+
             <Route path="uploads" element={<Input />} />
-            <Route path="class" element={<Studentlist />} />
-            <Route path="timetable" element={<Counselling />} />
+            <Route path="students/:id" element={<StudentCoun />} />
+            <Route path="class" element={<Classlist />} />
+            <Route path="counselling" element={<Counselling1 />} />
           </Route>
-          <Route path="counsellor" element={<Counsellor />} />
+
+          <Route path="counsellor" element={<Counsellor />}>
+            <Route path="dashboard" element={<CardStudent />} />
+            <Route path="students/:id" element={<StudentCoun2 />} />
+          </Route>
+
           <Route path="hod" element={<Hod />}>
             <Route path="students" element={<Studentlist />} />
             <Route path="students/:id" element={<Studentoverall />} />
             <Route path="attendance" element={<Attendance1 />} />
-            <Route path="performance" element={<Results />} />
-            <Route path="counselling" element={<Studentlist />} />
-            <Route path="timetable" element={<Timetable />} />
+            <Route path="performance" element={<Classlist />} />
+            <Route path="counselling" element={<Counselling />} />
           </Route>
         </Routes>
       </div>

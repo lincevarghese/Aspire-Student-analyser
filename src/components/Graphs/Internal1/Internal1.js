@@ -1,23 +1,21 @@
 import React from 'react';
 import {Bar} from 'react-chartjs-2';
-import {db} from '../../../Firebase/Config'
-import { ref, set } from "firebase/database";
 import './Internal1.css';
 
 const state = {
   chartData: {
     labels: [
-      "Subject 1",
-      "Subject 2",
-      "Subject 3",
-      "Subject 4",
-      "Subject 5",
-      "Subject 6",
+      "CS201",
+      "CS203",
+      "CS205",
+      "CS207",
+      "CS209",
+      "CS265",
     ],
     datasets: [
       {
         label: "Internal 1",
-        data: [45, 30, 41, 42, 40, 38, 0, 50],
+        data: [29, 30, 32, 21, 26, 22, 0, 50],
         backgroundColor: [
           "rgba(22,98,208,0.6)",
           "rgba(22,98,208,0.6)",
@@ -29,7 +27,7 @@ const state = {
       },
       {
         label: "Internal 2",
-        data: [40, 35, 44, 37, 30, 36, 0, 50],
+        data: [25, 26, 30, 27, 26, 28, 0, 50],
         backgroundColor: [
           "rgb(73,85,137)",
           "rgb(73,85,137)",

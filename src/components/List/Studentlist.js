@@ -35,7 +35,8 @@ function Studentlist() {
               <th>S3</th>
               <th>S4</th>
               <th>S5</th>
-              <th>Supply</th>
+              <th>CGPA</th>
+              <th>Backlogs</th>
             </tr>
           </thead>
           <tbody>
@@ -49,12 +50,13 @@ function Studentlist() {
                   <td>{data[row].S3}</td>
                   <td>{data[row].S4}</td>
                   <td>{data[row].S5}</td>
+                  <td>{data[row].CGPA}</td>
                   <td>{data[row].RS}</td>
                   {/*<td>{index}</td>*/}
                   {/* <td>{row.data.Name}</td> */}
                   <td>
-                    <Link to={`/hod/students/${data[row].RollNo}`}>
-                      <button>View Profile</button>
+                    <Link to={`/teacher/students/${data[row].RollNo}`}>
+                      <button className="buttonclick1">View Profile</button>
                     </Link>
                   </td>
                 </tr>

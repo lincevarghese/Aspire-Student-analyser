@@ -8,6 +8,13 @@
     
     box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
 }
+.P-carduni {
+    width: 33.33333%;
+    position:relative;
+    left: 863px;
+    top:-939px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+}
 
 .P-margin{
     margin:10px;

@@ -5,7 +5,7 @@ import {useState} from 'react'
 import {Link, useNavigate } from "react-router-dom";
 import {useUserAuth} from "../../Context/userAuthContext"
 import {Alert} from 'react-bootstrap'
-import {uid} from "uid";
+
 import {db} from "../../Firebase/Config"
 import {ref, set } from 'firebase/database';
 
@@ -26,9 +26,9 @@ function Studsignup() {
   const [error,setError] = useState("");
 
   function writeUserData(){
-    const uuid = uid();
-    set(ref(db,"User/" +uuid),{
-      uuid,
+    
+    set(ref(db,"User/" +fullname),{
+      
      email:email,
     name:fullname,
      division:classname,

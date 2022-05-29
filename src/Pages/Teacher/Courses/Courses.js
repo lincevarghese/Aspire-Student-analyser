@@ -7,17 +7,15 @@ function Courses() {
     <div className="main-container">
       <NavLink to="analysis1">
         <div className="cardcourse card-1">
-          <h4 className="cardcourse_title">CS 400</h4>
-          <h2 className="cardcourse__title">
-            Principle of Information Security
-          </h2>
+          <h4 className="cardcourse_title">CS 203</h4>
+          <h2 className="cardcourse__title">Software Engineering Project Management</h2>
         </div>
       </NavLink>
       <NavLink to="analysis2">
       <div className="cardcourse card-2">
-        <h4 className="cardcourse_title">CS 306</h4>
+        <h4 className="cardcourse_title">CS 205</h4>
         <h2 className="cardcourse__title">
-          Software Engineering Project Management
+          Object Oriented Programming
         </h2>
       </div>
     </NavLink>

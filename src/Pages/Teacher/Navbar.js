@@ -32,7 +32,7 @@ function Navbar() {
             <div id="title">Class</div>
           </li>
         </NavLink>
-        <NavLink to="timetable" activeClassName="clicked">
+        <NavLink to="counselling" activeClassName="clicked">
           <li className="row">
             <div id="icon">
               <PsychologyIcon />

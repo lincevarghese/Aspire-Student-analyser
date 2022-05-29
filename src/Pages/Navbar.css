@@ -27,7 +27,6 @@
  flex-direction: row;
  color: rgb(22,98,208);
  justify-content: center;
- background-color: rgb(192, 192, 206);
  align-items: center;
  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -48,13 +47,20 @@
 .active{
      background-color: rgb(192, 192, 206);
 }
+.inactive{
+    background-color: aqua;
+}
 
+.sidebarList .row:hover {
+    cursor: pointer;
+    background-color: rgb(192, 192, 206);
 
-
+}
 
 .SidebarList .row:hover{
     cursor: pointer;
-    background-color: rgb(192, 192, 206);
+    background-color: rgb(192,192,206);
+
 }
 
 

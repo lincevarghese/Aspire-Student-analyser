@@ -1,5 +1,9 @@
 import "./Form.css";
 import React from "react";
+import "../Graphs/Internal1/Internal1.css";
+import "../Graphs/Uniexam/Uniexam.css";
+import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import { useUserAuth } from "../../Context/userAuthContext";
 import {
   getDatabase,
@@ -73,42 +77,43 @@ function Studentoverall1() {
     };
   }, []);
     return (
-      <Table className="single">
-        <thead>
-          <tr>
-            {/* <th>#</th> */}
+      <>
+        <Table className="single">
+          <thead>
+            <tr>
+              {/* <th>#</th> */}
 
-            <th></th>
-            <th className="row1">Internals</th>
-            <th className="row1">CS201</th>
-            <th className="row1">CS203</th>
-            <th className="row1">CS205</th>
-            <th className="row1">CS207</th>
-            <th className="row1">CS209</th>
-            <th className="row1">CS265</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.keys(data1).map((row, index) => {
-            return (
-              <tr>
-                {/*<td>{index}</td>*/}
-                <td></td>
-                {/* <td>{row.data.Name}</td> */}
-                <td>Internal 1</td>
-                <td>{data1[row].cs201}</td>
-                <td>{data1[row].cs203}</td>
-                <td>{data1[row].cs205}</td>
-                <td>{data1[row].cs207}</td>
-                <td>{data1[row].cs209}</td>
-                <td>{data1[row].cs265}</td>
-              </tr>
-            );
-          })}
-        </tbody>
+              <th></th>
+              <th className="row1">Internals</th>
+              <th className="row1">CS201</th>
+              <th className="row1">CS203</th>
+              <th className="row1">CS205</th>
+              <th className="row1">CS207</th>
+              <th className="row1">CS209</th>
+              <th className="row1">CS265</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.keys(data1).map((row, index) => {
+              return (
+                <tr>
+                  {/*<td>{index}</td>*/}
+                  <td></td>
+                  {/* <td>{row.data.Name}</td> */}
+                  <td>Internal 1</td>
+                  <td>{data1[row].cs201}</td>
+                  <td>{data1[row].cs203}</td>
+                  <td>{data1[row].cs205}</td>
+                  <td>{data1[row].cs207}</td>
+                  <td>{data1[row].cs209}</td>
+                  <td>{data1[row].cs265}</td>
+                </tr>
+              );
+            })}
+          </tbody>
 
-        <thead>
-          {/*<tr>
+          <thead>
+            {/*<tr>
             <th>#</th> 
             <th>Name</th>
             <th>cs201</th>
@@ -118,61 +123,61 @@ function Studentoverall1() {
             <th>cs209</th>
             <th>cs265</th>
           </tr> */}
-        </thead>
-        <tbody>
-          {Object.keys(data2).map((row, index) => {
-            return (
-              <tr>
-                {/*<td>{index}</td>*/}
-                <td className="row2">
-                  
-                </td>
-                {/* <td>{row.data.Name}</td> */}
-                <td>Internal 2</td>
-                <td>{data2[row].cs201}</td>
-                <td>{data2[row].cs203}</td>
-                <td>{data2[row].cs205}</td>
-                <td>{data2[row].cs207}</td>
-                <td>{data2[row].cs209}</td>
-                <td>{data2[row].cs265}</td>
-              </tr>
-            );
-          })}
-        </tbody>
+          </thead>
+          <tbody>
+            {Object.keys(data2).map((row, index) => {
+              return (
+                <tr>
+                  {/*<td>{index}</td>*/}
+                  <td className="row2"></td>
+                  {/* <td>{row.data.Name}</td> */}
+                  <td>Internal 2</td>
+                  <td>{data2[row].cs201}</td>
+                  <td>{data2[row].cs203}</td>
+                  <td>{data2[row].cs205}</td>
+                  <td>{data2[row].cs207}</td>
+                  <td>{data2[row].cs209}</td>
+                  <td>{data2[row].cs265}</td>
+                </tr>
+              );
+            })}
+          </tbody>
 
-        <thead>
-          <tr className="row3">
-            {/* <th>#</th> */}
-            <th></th>
-            <th className="row1">End Semester</th>
-            <th className="row1">S1</th>
-            <th className="row1">S2</th>
-            <th className="row1">S3</th>
-            <th className="row1">S4</th>
-            <th className="row1">S5</th>
-            <th className="row1">Supply</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.keys(data3).map((row, index) => {
-            return (
-              <tr>
-                {/*<td>{index}</td>*/}
-                <td></td>
-                {/* <td>{row.data.Name}</td> */}
+          <thead>
+            <tr className="row3">
+              {/* <th>#</th> */}
+              <th></th>
+              <th className="row1">End Semester</th>
+              <th className="row1">S1</th>
+              <th className="row1">S2</th>
+              <th className="row1">S3</th>
+              <th className="row1">S4</th>
+              <th className="row1">S5</th>
+              <th className="row1">Supply</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.keys(data3).map((row, index) => {
+              return (
+                <tr>
+                  {/*<td>{index}</td>*/}
+                  <td></td>
+                  {/* <td>{row.data.Name}</td> */}
 
-                <td>SGPA</td>
-                <td>{data3[row].S1}</td>
-                <td>{data3[row].S2}</td>
-                <td>{data3[row].S3}</td>
-                <td>{data3[row].S4}</td>
-                <td>{data3[row].S5}</td>
-                <td>{data3[row].RS}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </Table>
+                  <td>SGPA</td>
+                  <td>{data3[row].S1}</td>
+                  <td>{data3[row].S2}</td>
+                  <td>{data3[row].S3}</td>
+                  <td>{data3[row].S4}</td>
+                  <td>{data3[row].S5}</td>
+                  <td>{data3[row].RS}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </Table>
+        
+      </>
     );
   }
   

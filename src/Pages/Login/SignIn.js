@@ -30,7 +30,7 @@ function Signup() {
 
           <form class="login-form">
             <Link to="/counsellor">
-              <button className="log_button">Counseller</button>
+              <button className="log_button">Counsellor</button>
             </Link>
           </form>
         </div>
