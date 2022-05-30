@@ -17,6 +17,7 @@ import Hod from './Pages/HOD/Hod';
 import Signup from "./Pages/Login/Signup";
 import Performance from './Pages/Student/Performance';
 import Classlist from './Pages/Teacher/Class/Classlist'
+import Classlist2 from './Pages/Teacher/Class/Classlist2'
 import Courses from './Pages/Teacher/Courses/Courses';
 import Input from './Pages/Teacher/Input/Input';
 import {RealtimeData} from './Pages/Teacher/Input/Input2';
@@ -68,7 +69,7 @@ function App() {
 
             <Route path="uploads" element={<Input />} />
             <Route path="students/:id" element={<StudentCoun />} />
-            <Route path="class" element={<Classlist />} />
+            <Route path="class" element={<Classlist2 />} />
             <Route path="counselling" element={<Counselling1 />} />
           </Route>
 

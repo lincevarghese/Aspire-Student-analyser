@@ -24,7 +24,7 @@ function Studentlist() {
   return (
     <div>
       <>
-        <Table className="single_sub">
+        <Table className="single_sub2">
           <thead>
             <tr>
               {/* <th>#</th> */}
@@ -55,7 +55,7 @@ function Studentlist() {
                   {/*<td>{index}</td>*/}
                   {/* <td>{row.data.Name}</td> */}
                   <td>
-                    <Link to={`/teacher/students/${data[row].RollNo}`}>
+                    <Link to={`/hod/students/${data[row].RollNo}`}>
                       <button className="buttonclick1">View Profile</button>
                     </Link>
                   </td>

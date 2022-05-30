@@ -40,7 +40,7 @@ function CardStudent() {
     <div>
       <>
         <ToastContainer />
-        <Table className="single_sub">
+        <Table className="single_sub3">
           <thead>
             <tr>
               {/* <th>#</th> */}

@@ -1,17 +1,17 @@
 import React from 'react'
 import { BrightTot } from '../../../components/List/BrightTot'
-import Studentlist1 from '../../../components/List/Studentlist1'
+import Studentlist2 from '../../../components/List/Studentlist2'
 import { WeakTot } from '../../../components/List/WeakTot'
 
 
-function Classlist() {
+function Classlist2() {
   return (
     <div>
-    <Studentlist1/>
+    <Studentlist2/>
     <BrightTot/>
     <WeakTot/>
     </div>
   )
 }
 
-export default Classlist
+export default Classlist2
