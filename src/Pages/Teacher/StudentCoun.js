@@ -201,7 +201,7 @@ function StudentCoun() {
                     backgroundColor: [
                       "rgb(73,85,137)",
                       "rgb(73,85,137)",
-                      "rgb(73,85,137))",
+                      "rgb(73,85,137)",
                       "rgb(73,85,137)",
                       "rgb(73,85,137)",
                       "rgb(73,85,137)",

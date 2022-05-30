@@ -1,18 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../Navbar.css'
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import ClassIcon from "@mui/icons-material/Class";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
-import EventNoteIcon from "@mui/icons-material/EventNote";
 import PsychologyIcon from "@mui/icons-material/Psychology";
-import {
-  NavLink,
-} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import { style } from '@mui/system';
 
 
 function Navbar() {
-  
+  const [activeTab,setActiveTab]=useState();
   return (
     <div className="Sidebar">
       <ul className="SidebarList">

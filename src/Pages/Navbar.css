@@ -47,9 +47,7 @@
 .active{
      background-color: rgb(192, 192, 206);
 }
-.inactive{
-    background-color: aqua;
-}
+
 
 .sidebarList .row:hover {
     cursor: pointer;
@@ -60,6 +58,12 @@
 .SidebarList .row:hover{
     cursor: pointer;
     background-color: rgb(192,192,206);
+
+}
+
+.Sidebar ul a.active{
+    
+    background-color: rgb(117, 117, 143);
 
 }
 
